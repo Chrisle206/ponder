@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { User, Ponder } = require("../models");
+const { User, Ponder } = require("../../models");
 
-
+//TODO: POST route for creating a new ponder.
 
 module.exports = router;
