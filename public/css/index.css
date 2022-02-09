@@ -1,0 +1,45 @@
+* {
+    font-family: 'Nunito', 'Geneva', 'Verdana', sans-serif;
+    --bg-color: #FDF3CC;
+    --nav-font-color: rgb(11, 69, 11);
+    --font-color: #ffffff;
+    --pond-color: #8ACDEA;
+}
+
+.ponder-nav {
+    display: flex;
+    color: var(--nav-font-color);
+}
+
+.nav-left {
+    width: 85%;
+}
+
+.nav-right {
+    width: 15%;
+    margin-top: 30px;
+}
+
+#ponder-logo {
+    font-size: 60px;
+}
+
+#ponder-slogan {
+    font-size: 20px;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--font-color);
+}
+
+.main-card {
+    background: rgb(158,226,255);
+    background: radial-gradient(circle, rgba(158,226,255,1) 13%, rgba(138,205,234,1) 57%, rgba(138,205,234,1) 100%);
+    border-radius: 200px;
+    height: 550px;
+    width: 700px;
+    margin: 20px auto;
+    padding: 150px 150px;
+    font-size: 25px;
+}
