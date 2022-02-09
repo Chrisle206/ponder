@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS ponder_db;
+CREATE DATABASE ponder_db;
