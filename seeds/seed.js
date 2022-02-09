@@ -21,13 +21,20 @@ const users = [
     }
 ]
 
+const ponders = [
+    {
+        body:"hello",
+        user_id:1
+    }
+]
+
 const sequelize = require("../config/connection");
 const {User, Ponder} = require("../models")
 
 const seed = async ()=>{
     await sequelize.sync({force:true});
     await User.bulkCreate(users,{individualHooks:true});
-    await Tweet.bulkCreate(tweets);
+    await Ponder.bulkCreate(ponders);
     console.log("Database has been seeded!");
     process.exit(0);
 }
