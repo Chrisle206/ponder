@@ -1,24 +1,22 @@
 const express = require("express");
+const { USE } = require("sequelize/types/index-hints");
 const router = express.Router();
 const { User, Ponder, Comment } = require("../../models");
 
 router.get("/:id", (req, res) => {
     Ponder.findOne({
-        where: {id: Math.floor(Math.random()*Ponder.length)+1}
-        
+        where: {id: Math.floor(Math.random()*Ponder.length)+1},
+        include: [User, Comment]
     }).then(ponders => {
         res.json(ponders);
     });
 });
 
 router.get("/", (req, res) => {
-    Ponder.findAll({
-         //map grab latest ponders
-    }).then(ponders => {
-        // const pondersArray = ponders.map(ponder => ponder.get({ plain: true }));
-        // let recent = [pondersArray[pondersArray-1],pondersArray[pondersArray-2],pondersArray[pondersArray-3],];
+    Ponder.findAll().then(ponders => {
+        let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3],];
 
-        // res.json(recent);
+        res.json(recent);
     });
 });
 
@@ -40,7 +38,7 @@ router.post("/", (req, res) => {
     }
 });
 
-router.delete("/", (req, res) => {
+router.delete("/:id", (req, res) => {
     Ponder.destroy({
         where: {id: req.params.id}
     });
