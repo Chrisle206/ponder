@@ -45,5 +45,6 @@ module.exports={
     User,
     Ponder,
     Vote,
-    Category
+    Category,
+    Comment
 }
