@@ -1,5 +1,4 @@
 const express = require("express");
-const { USE } = require("sequelize/types/index-hints");
 const router = express.Router();
 const { User, Ponder, Comment } = require("../../models");
 
