@@ -49,4 +49,14 @@ router.get("/logout",(req,res)=>{
     res.send("Logged out.")
 })
 
+//Show all users, this is for troubleshooting
+router.get('/show',(req,res)=>{
+    User.findAll({
+        include:[Ponder]
+    }).then(users=>{
+        res.json(users)
+    })
+})
+
+
 module.exports = router;
