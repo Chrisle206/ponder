@@ -8,5 +8,6 @@ const userRoutes = require("./userController.js")
 router.use("/users",userRoutes)
 
 const commentRoutes = require("./commentController.js")
-router.use("/comment",commentRoutes)
+router.use("/comments",commentRoutes)
+
 module.exports = router;
