@@ -1,7 +1,7 @@
 const users = [
     {
-        username:"Shawn",
-        email:"shawnanalla@gmail.com",
+        username:"Anonymous",
+        email:"anonymous@gmail.com",
         password:"password1"
     },
     {
@@ -18,38 +18,68 @@ const users = [
         username: "Chris",
         email:"chrisle@gmail.com",
         password:"Naruto"
-    }
+    },
+    {
+        username: "Sean",
+        email:"shawnanalla@gmail.com",
+        password:"metagross"
+    },
 ]
 
 const ponders = [
     {
-        body:"hello",
-        user_id:1,
-        category_id: 1
+        body:"Civilization should be destroyed and we should revert back to being hunter-gatherers",
+        UserId:1,
+        CategoryId: 1
     },
     {
-        body:"I hate Pokemon",
-        user_id:2,
-        category_id: 1
+        body:"Pokemon is a bad franchise",
+        UserId:2,
+        CategoryId: 1
     },
     {
-        body:"Coffee is bad",
-        user_id:3,
-        category_id: 1
+        body:"Coffee smells bad",
+        UserId:3,
+        CategoryId: 1
     },
     {
-        body:"Apple is overpriced",
-        user_id:4,
-        category_id: 1
+        body:"Nuclear energy is the future prove me wrong",
+        UserId:4,
+        CategoryId: 4
     },
 ]
 
 const comments = [
     {
         body:"This post sucks",
-        user_id:1,
-        ponder_id:1
-    }
+        UserId:1,
+        PonderId:1
+    },
+    {
+        body:"amen",
+        UserId:1,
+        PonderId:1
+    },
+    {
+        body:"you're a moron",
+        UserId:1,
+        PonderId:1
+    },
+    {
+        body:"Shut up nerd",
+        UserId:1,
+        PonderId:4
+    },
+    {
+        body:"YOU smell bad",
+        UserId:4,
+        PonderId:3
+    },
+    {
+        body:"objectively incorrect",
+        UserId:4,
+        PonderId:2
+    },
 ]
 
 const categories = [
@@ -59,17 +89,33 @@ const categories = [
     {
         category_name:"Coding",
     },
+    {
+        category_name:"Gaming",
+    },
+    {
+        category_name:"Technology",
+    },
+    {
+        category_name:"Food",
+    },
+    {
+        category_name:"Advice",
+    },
+    {
+        category_name:"Conversation",
+    },
 ]
+
 
 const sequelize = require("../config/connection");
 const {User, Ponder, Comment, Category} = require("../models")
 
 const seed = async ()=>{
     await sequelize.sync({force:true});
+    await Category.bulkCreate(categories);
     await User.bulkCreate(users,{individualHooks:true});
     await Ponder.bulkCreate(ponders);
     await Comment.bulkCreate(comments);
-    await Category.bulkCreate(categories);
     console.log("Database has been seeded!");
     process.exit(0);
 }
