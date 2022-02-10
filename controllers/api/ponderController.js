@@ -52,7 +52,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//TODO: Anonymous route might not work if user_id is datatype INTEGER.
+//Anonymous route might not work because user_id is datatype INTEGER.
 router.post("/", (req, res) => {
     if (req.session.user) {
         Ponder.create({
@@ -64,14 +64,15 @@ router.post("/", (req, res) => {
     } else {
         Ponder.create({
             body: req.body.body,
-            user_id: "Anonymous"
+            user_id: 1
           }).then(newPost => {
             res.json(newPost);
           });
     }
 });
 
-//TODO: Createa 'show sessions' route
+
+//Route for deleting a Ponder.
 router.delete("/:id", (req, res) => {
     Ponder.destroy({
         where: {id: req.params.id}

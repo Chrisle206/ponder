@@ -24,19 +24,23 @@ const users = [
 const ponders = [
     {
         body:"hello",
-        user_id:1
+        user_id:1,
+        category_id: 1
     },
     {
         body:"I hate Pokemon",
-        user_id:2
+        user_id:2,
+        category_id: 1
     },
     {
         body:"Coffee is bad",
-        user_id:3
+        user_id:3,
+        category_id: 1
     },
     {
         body:"Apple is overpriced",
-        user_id:4
+        user_id:4,
+        category_id: 1
     },
 ]
 

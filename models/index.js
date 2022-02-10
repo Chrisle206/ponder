@@ -23,6 +23,11 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
+
+Comment.belongsTo(Ponder, {
+    foreignKey: 'ponder_id',
+    onDelete: 'CASCADE'
+});
 //TODO: Divide Vote model into two separate models, one for Upvote and one for Downvote.
 //Votes belong to a Ponder, and will have that ponder's associated ponder_id.
 Vote.belongsTo(Ponder, {

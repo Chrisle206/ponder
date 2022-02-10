@@ -7,4 +7,7 @@ router.use("/ponder",ponderRoutes)
 const userRoutes = require("./userController.js")
 router.use("/users",userRoutes)
 
+const commentRoutes = require("./commentController.js")
+router.use("/comments",commentRoutes)
+
 module.exports = router;
