@@ -5,7 +5,6 @@ const { User, Ponder, Comment } = require("../../models");
 //To use these routes, type localhost:3000/api/ponder as your base URL.
 //GET route for viewing a random ponder.
 //TODO: Need a get route that will show ponders WITHOUT comments as well, for the 'recent ponders' aside.
-//TODO: Ponder.length is not going to work, cannot grab length of model, Need array of all Ponders?
 router.get("/random", (req, res) => {
     Ponder.findAll().then( array => {
     Ponder.findOne({
@@ -15,8 +14,8 @@ router.get("/random", (req, res) => {
         res.json(ponders);
     });
     
+    });
 });
-})
 
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
 router.get("/specific/:id", async (req, res) => {
@@ -47,13 +46,13 @@ router.get("/specific/:id", async (req, res) => {
 //Shows three most recent ponders.
 router.get("/", (req, res) => {
     Ponder.findAll().then(ponders => {
-        let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3],];
+        let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
 
         res.json(recent);
     });
 });
 
-//TODO: Anonymous route might not work if user_id is datatype INTEGER.
+//Anonymous route might not work because user_id is datatype INTEGER.
 router.post("/", (req, res) => {
     if (req.session.user) {
         Ponder.create({
@@ -65,13 +64,15 @@ router.post("/", (req, res) => {
     } else {
         Ponder.create({
             body: req.body.body,
-            user_id: "Anonymous"
+            user_id: 1
           }).then(newPost => {
             res.json(newPost);
           });
     }
 });
 
+
+//Route for deleting a Ponder.
 router.delete("/:id", (req, res) => {
     Ponder.destroy({
         where: {id: req.params.id}
