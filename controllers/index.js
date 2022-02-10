@@ -13,5 +13,9 @@ router.get("/pondertest", (req, res) => {
     res.render('ponder');
   });
 
+router.get("/showsessions", (req, res) => {
+    res.json(req.session);
+  });
+  
 
 module.exports = router;

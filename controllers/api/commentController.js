@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { User, Ponder, Comment } = require("../../models");
 
-
+//Route for getting all comments
 router.get("/", (req, res) => {
     Comment.findAll({
         include: [User]
@@ -11,18 +11,21 @@ router.get("/", (req, res) => {
     })
 });
 
+//Route for posting new comments
 router.post("/", (req, res) => {
     if (req.session.user) {
         Comment.create({
             body: req.body.body,
-            UserId: req.session.user.id
+            user_id: req.session.user.id,
+            ponder_id: req.body.ponder_id
         }).then(newComment => {
             res.json(newComment);
         });
     } else {
         Comment.create({
             body: req.body.body,
-            UserId: "Anonymous"
+            user_id: 1,
+            ponder_id: req.body.ponder_id
         }).then(newComment => {
             res.json(newComment);
         });
@@ -32,8 +35,10 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
     Comment.destroy({
         where: { id: req.params.id }
+    }).then(deleted => {
+        res.json(deleted);
     });
 });
 
-router.delete()
+
 module.exports = router;
