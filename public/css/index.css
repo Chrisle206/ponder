@@ -11,13 +11,8 @@
     color: var(--nav-font-color);
 }
 
-.nav-left {
-    width: 85%;
-}
-
-.nav-right {
-    width: 15%;
-    margin-top: 30px;
+.nav-left-corner {
+    color: var(--nav-font-color);
 }
 
 #ponder-logo {
