@@ -25,7 +25,19 @@ const ponders = [
     {
         body:"hello",
         user_id:1
-    }
+    },
+    {
+        body:"I hate Pokemon",
+        user_id:2
+    },
+    {
+        body:"Coffee is bad",
+        user_id:3
+    },
+    {
+        body:"Apple is overpriced",
+        user_id:4
+    },
 ]
 
 const comments = [
