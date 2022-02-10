@@ -14,18 +14,17 @@
     <title>Ponder</title>
 </head>
 <body>
-    <nav class="ponder-nav">
-        <div class="nav-left">
-            <h1 id="ponder-logo">Ponder</h1>
-            <p id="ponder-slogan">The Social Media for Anonymous Thinkpieces</p>
-        </div>
-        <div class="nav-right">
-           
-            <!-- Button trigger modal -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="nav-left-corner">
+                <h1 id="ponder-logo">Ponder</h1>
+                <p id="ponder-slogan">The Social Media for Anonymous Thinkpieces</p>
+            </div>
+            <div class="d-flex">           
+                <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
                     Login
                     </button>
-
                     <!-- Modal -->
                 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -55,7 +54,7 @@
                         </div>
                     </div>
                  </div>
-                    {{!-- end modal --}}
+            {{!-- end modal --}}
             <a> || </a>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
@@ -82,7 +81,6 @@
                                         <input type="password" class="form-control" id="exampleInputPassword1">
                                     </div>
                                     </form>
-
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -91,7 +89,10 @@
                         </div>
                     </div>
                    </div> 
-                    {{!-- end modal --}}
+                {{!-- end modal --}}
+        </div>
+       
+
         </div>
     </nav>
 
