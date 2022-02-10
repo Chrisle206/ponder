@@ -8,6 +8,9 @@ router.use("/api", routes);
 router.get("/", (req, res) => {
     res.render('form');
   });
+router.get("/pondertest", (req, res) => {
+    res.render('ponder');
+  });
 
 
 module.exports = router;
