@@ -6,7 +6,7 @@ router.use("/api", routes);
 
 //Homepage
 router.get("/", (req, res) => {
-    res.render("start");
+    res.render('form');
   });
 
 
