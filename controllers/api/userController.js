@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require("bcrypt")
 const router = express.Router();
-const {User, Ponder} = require('../../models');
+const { User, Ponder, Comment } = require("../../models");
 
 //Login route
 router.post("/login",(req,res)=>{
