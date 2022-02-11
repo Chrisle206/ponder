@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { User, Ponder, Comment } = require("../../models");
-const AnonymousProfileId = 1;
+var filter = require('filter');
+const { User, Ponder, Comment, Vote } = require("../../models");
 
 //To use these routes, type localhost:3000/api/ponder as your base URL.
+
+const AnonymousProfileId = 1;
+
+
 
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
 router.get("/specific/:id", async (req, res) => {
@@ -58,8 +62,10 @@ router.post("/", (req, res) => {
         });
     } else {
         Ponder.create({
-            body: req.body.body,
+
+            body: filter.clean(req.body.body),
             UserId: AnonymousProfileId,
+
             CategoryId: req.body.CategoryId
           }).then(newPonder => {
             // res.json(newPonder);

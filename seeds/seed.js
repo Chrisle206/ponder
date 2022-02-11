@@ -166,7 +166,8 @@ const categories = [
 
 const sequelize = require("../config/connection");
 const {User, Ponder, Comment, Category} = require("../models")
-
+var filter = require('filter');
+filter.seed('profanities');
 const seed = async ()=>{
     await sequelize.sync({force:true});
     await Category.bulkCreate(categories);
