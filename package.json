@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node lib/seeds/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
     "path": "^0.12.7",
+    "profanity-filter": "^0.2.1",
     "sequelize": "^6.3.5"
   }
 }

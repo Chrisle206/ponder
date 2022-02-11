@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
-var filter = require('filter');
+var Filter = require('bad-words');
+const badWordsArray = require('../../lib/seeds/profanities')
 const { User, Ponder, Comment, Vote } = require("../../models");
-
-//To use these routes, type localhost:3000/api/ponder as your base URL.
-
 const AnonymousProfileId = 1;
 
-
-
+//To use these routes, type localhost:3000/api/ponder as your base URL.
+var filter = new Filter();
+filter.addWords(...badWordsArray);
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
 router.get("/specific/:id", async (req, res) => {
     try {

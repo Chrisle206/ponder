@@ -4,18 +4,16 @@ const { User, Ponder, Comment } = require("../models");
 //GET route for viewing a random ponder.
 //TODO: Need a get route that will show ponders WITHOUT comments as well, for the 'recent ponders' aside.
 router.get("/random", (req, res) => {
-    Ponder.findAll().then( array => {
-    Ponder.findOne({
-        where: {id: Math.floor(Math.random()*array.length)+1},
-        include: [User, Comment]
-    }).then(ponders => {
-        const ponder = ponders.get({ plain: true });
+    Ponder.findAll({
+      include: [User, Comment]
+    }).then( array => {
+      const singlePonder = array[Math.floor(Math.random()*array.length)]
+        const ponder = singlePonder.get({ plain: true });
         console.log(ponder);
         res.render('ponder', { ponder });
   });
     
     });
-});
 
 
 router.get("/specific/:id", async (req, res) => {
