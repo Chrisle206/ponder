@@ -4,19 +4,10 @@ var filter = require('filter');
 const { User, Ponder, Comment, Vote } = require("../../models");
 
 //To use these routes, type localhost:3000/api/ponder as your base URL.
-//GET route for viewing a random ponder.
-//TODO: Need a get route that will show ponders WITHOUT comments as well, for the 'recent ponders' aside.
-router.get("/random", (req, res) => {
-    Ponder.findAll().then( array => {
-    Ponder.findOne({
-        where: {id: Math.floor(Math.random()*array.length)+1},
-        include: [User, Comment, Vote]
-    }).then(ponders => {
-        res.json(ponders);
-    });
-    
-    });
-});
+
+const AnonymousProfileId = 1;
+
+
 
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
 router.get("/specific/:id", async (req, res) => {
@@ -34,8 +25,8 @@ router.get("/specific/:id", async (req, res) => {
         if (postData) {
           const post = postData.get({ plain: true });
     
-        //   res.render('ponder', { post });
-        res.status(200).json(post);
+          res.render('ponder', { post });
+          // res.json(post)
         } else {
           res.status(404).end();
         }
@@ -44,6 +35,8 @@ router.get("/specific/:id", async (req, res) => {
       }
     });
 
+//TODO: Anonymous post route, separate from logged in post route, if checkbox is 'true', with userId hardcoded to 1
+//Anywhere you do a render in an API route, split up into HTML routes for separating jobs (API is for interacting with database, Home is from rendering pages)
 //Shows three most recent ponders.
 router.get("/", (req, res) => {
     Ponder.findAll().then(ponders => {
@@ -58,20 +51,27 @@ router.post("/", (req, res) => {
     if (req.session.user) {
         Ponder.create({
           body: req.body.body,
-          UserId: req.body.UserId,
+          UserId: req.session.user.id,
           CategoryId: req.body.CategoryId
           // user_id: req.session.user.id
-        }).then(newPost => {
-          res.json(newPost);
-          console.log(newPost)
+        }).then(newPonder => {
+          // res.json(newPonder);
+          const ponder = newPonder.get({ plain: true});
+          console.log(ponder);
+          res.json(ponder);
         });
     } else {
         Ponder.create({
+
             body: filter.clean(req.body.body),
-            UserId: 1,
+            UserId: AnonymousProfileId,
+
             CategoryId: req.body.CategoryId
-          }).then(newPost => {
-            res.json(newPost);
+          }).then(newPonder => {
+            // res.json(newPonder);
+            const ponder = newPonder.get({ plain: true});
+            console.log(ponder);
+            res.json(ponder);
           });
     }
 });

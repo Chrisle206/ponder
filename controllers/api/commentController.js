@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { User, Ponder, Comment } = require("../../models");
+const AnonymousProfileId = 1;
+
 
 //Route for getting all comments
 router.get("/", (req, res) => {
@@ -24,7 +26,7 @@ router.post("/", (req, res) => {
     } else {
         Comment.create({
             body: req.body.body,
-            user_id: 1,
+            user_id: AnonymousProfileId,
             ponder_id: req.body.ponder_id
         }).then(newComment => {
             res.json(newComment);
