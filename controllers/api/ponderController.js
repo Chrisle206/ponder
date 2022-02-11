@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var filter = require('bad-words');
+// var filter = require('bad-words');
 const { User, Ponder, Comment, Vote } = require("../../models");
 const AnonymousProfileId = 1;
 

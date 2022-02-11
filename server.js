@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
-const filter = require('bad-words');
+// const filter = require('bad-words');
 
 
 const sequelize = require('./config/connection');
