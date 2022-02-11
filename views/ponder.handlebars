@@ -2,11 +2,17 @@
 
 <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
 
-  <div class="card-header">User: {{ponder.UserId}}</div>
+  <div class="card-header">{{ponder.User.username}}</div>
   <div class="card-body">
 
-    <p class="card-text">text: {{ponder.body}}</p>
+    <p class="card-text">{{ponder.body}}</p>
   </div>
+  
+  {{#each ponder.Comments}}
+  <div class="card-body">
+    <p class="card-text">{{User.username}}: {{body}}</p>
+  </div>
+  {{/each}}
 
   {{!-- comment button --}}
   <button type="button" class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
