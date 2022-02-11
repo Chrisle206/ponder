@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { User, Ponder, Comment } = require("../../models");
+var filter = require('filter');
+const { User, Ponder, Comment, Vote } = require("../../models");
 
 //To use these routes, type localhost:3000/api/ponder as your base URL.
 //GET route for viewing a random ponder.
@@ -9,7 +10,7 @@ router.get("/random", (req, res) => {
     Ponder.findAll().then( array => {
     Ponder.findOne({
         where: {id: Math.floor(Math.random()*array.length)+1},
-        include: [User, Comment]
+        include: [User, Comment, Vote]
     }).then(ponders => {
         res.json(ponders);
     });
@@ -66,7 +67,7 @@ router.post("/", (req, res) => {
         });
     } else {
         Ponder.create({
-            body: req.body.body,
+            body: filter.clean(req.body.body),
             UserId: 1,
             CategoryId: req.body.CategoryId
           }).then(newPost => {
