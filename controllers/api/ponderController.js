@@ -57,14 +57,18 @@ router.post("/", (req, res) => {
     if (req.session.user) {
         Ponder.create({
           body: req.body.body,
-          user_id: req.session.user.id
+          UserId: req.body.UserId,
+          CategoryId: req.body.CategoryId
+          // user_id: req.session.user.id
         }).then(newPost => {
           res.json(newPost);
+          console.log(newPost)
         });
     } else {
         Ponder.create({
             body: req.body.body,
-            user_id: 1
+            UserId: 1,
+            CategoryId: req.body.CategoryId
           }).then(newPost => {
             res.json(newPost);
           });
