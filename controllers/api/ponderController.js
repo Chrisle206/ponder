@@ -60,17 +60,22 @@ router.post("/", (req, res) => {
           UserId: req.body.UserId,
           CategoryId: req.body.CategoryId
           // user_id: req.session.user.id
-        }).then(newPost => {
-          res.json(newPost);
-          console.log(newPost)
+        }).then(newPonder => {
+          // res.json(newPonder);
+          const ponder = newPonder.get({ plain: true});
+          console.log(ponder);
+          res.render('ponder', { ponder });
         });
     } else {
         Ponder.create({
             body: req.body.body,
             UserId: 1,
             CategoryId: req.body.CategoryId
-          }).then(newPost => {
-            res.json(newPost);
+          }).then(newPonder => {
+            // res.json(newPonder);
+            const ponder = newPonder.get({ plain: true});
+            console.log(ponder);
+            res.render('ponder', { ponder });
           });
     }
 });
