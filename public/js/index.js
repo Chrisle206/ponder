@@ -2,14 +2,18 @@
 // You'll have to guess what the ponder id is and look it up in insomnia
 
 // TODO: find a way to check relative url instead of hardcoding it
-if(window.location.href=="http://localhost:3001/") {
+
+// if(window.location.href=="http://localhost:3001/") {
+
+
         const ponderInput = document.querySelector('.ponder-input');
         const categoryInput = document.querySelector('.category-input');
         const anonymousInput = document.querySelector('#anonymous-check');
         const castBtn = document.querySelector('.cast-btn');
         const goFishingBtn = document.querySelector('.go-fishing-btn');
 
-    castBtn.onclick = async () => {
+    castBtn.onclick = async (event) => {
+        event.preventDefault();
 
         let ponderText = ponderInput.value;
         let categoryPick = categoryInput.value;
@@ -32,6 +36,12 @@ if(window.location.href=="http://localhost:3001/") {
           })
     }
 
-    goFishingBtn.onclick = () => {
-    }
-}
+    // goFishingBtn.onclick = () => {
+    //   await fetch('/api/ponder/random', {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'application/json' },
+    //   })
+    // }
+
+
+// }
