@@ -1,0 +1,28 @@
+{
+  "name": "ponder-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node lib/seeds/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bad-words": "^3.0.4",
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^16.0.0",
+    "envdot": "^0.0.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "path": "^0.12.7",
+    "profanity-filter": "^0.2.1",
+    "sequelize": "^6.3.5"
+  }
+}
