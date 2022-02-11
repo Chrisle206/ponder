@@ -1,8 +1,8 @@
 const router = require('express').Router();
-
+const htmlController = require("./htmlController");
 const routes = require("./api");
 router.use("/api", routes);
-
+router.use("/", htmlController)
 
 //Homepage
 router.get("/", (req, res) => {
