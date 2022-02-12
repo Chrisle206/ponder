@@ -9,33 +9,32 @@ const AnonymousProfileId = 1;
 var filter = new Filter();
 filter.addWords(...badWordsArray);
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
-router.get("/specific/:id", async (req, res) => {
-    try {
-        const postData = await Ponder.findByPk(req.params.id, {
-          include: [
-            User,
-            {
-              model: Comment,
-              include: [User],
-            },
-          ],
-        });
+//TODO: This route now exists in the htmlController file, therefore there is no need for it here.
+// router.get("/specific/:id", async (req, res) => {
+//     try {
+//         const postData = await Ponder.findByPk(req.params.id, {
+//           include: [
+//             User,
+//             {
+//               model: Comment,
+//               include: [User],
+//             },
+//           ],
+//         });
     
-        if (postData) {
-          const post = postData.get({ plain: true });
+//         if (postData) {
+//           const ponder = postData.get({ plain: true });
     
-          res.render('ponder', { post });
-          // res.json(post)
-        } else {
-          res.status(404).end();
-        }
-      } catch (err) {
-        res.status(500).json(err);
-      }
-    });
+//           res.render('ponder', { ponder });
+//           // res.json(post)
+//         } else {
+//           res.status(404).end();
+//         }
+//       } catch (err) {
+//         res.status(500).json(err);
+//       }
+// });
 
-//TODO: Anonymous post route, separate from logged in post route, if checkbox is 'true', with userId hardcoded to 1
-//Anywhere you do a render in an API route, split up into HTML routes for separating jobs (API is for interacting with database, Home is from rendering pages)
 //Shows three most recent ponders.
 router.get("/", (req, res) => {
     Ponder.findAll({include: [User, {model: Comment, include: [User]}]})
@@ -47,9 +46,10 @@ router.get("/", (req, res) => {
     });
 });
 
-//Anonymous route might not work because user_id is datatype INTEGER.
-router.post("/", (req, res) => {
-    if (req.session.user) {
+//POST route for posts associated with an id
+router.post("/", async (req, res) => {
+  try {  
+  if (req.session.user) {
         Ponder.create({
           body: req.body.body,
           UserId: req.session.user.id,
@@ -58,25 +58,46 @@ router.post("/", (req, res) => {
         }).then(newPonder => {
           // res.json(newPonder);
           const ponder = newPonder.get({ plain: true});
+          const user = req.session.user
           console.log(ponder);
           res.json(ponder);
         });
     } else {
-        Ponder.create({
-
-            body: filter.clean(req.body.body),
-            UserId: AnonymousProfileId,
-
-            CategoryId: req.body.CategoryId
-          }).then(newPonder => {
-            // res.json(newPonder);
-            const ponder = newPonder.get({ plain: true});
-            console.log(ponder);
-            res.json(ponder);
-          });
+      Ponder.create({
+        body: filter.clean(req.body.body),
+        UserId: AnonymousProfileId,
+        CategoryId: req.body.CategoryId
+      }).then(newPonder => {
+        // res.json(newPonder);
+        const ponder = newPonder.get({ plain: true});
+        console.log(ponder);
+        res.json(ponder);
+      });
     }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
+//POST route for anonymous posts
+router.post("/anonymous", async (req,res) => {
+  try {
+    Ponder.create({
+      body: filter.clean(req.body.body),
+      UserId: AnonymousProfileId,
+      CategoryId: req.body.CategoryId
+    }).then(newPonder => {
+      // res.json(newPonder);
+      const ponder = newPonder.get({ plain: true});
+      console.log(ponder);
+      res.json(ponder);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 //Route for deleting a Ponder.
 router.delete("/:id", (req, res) => {
