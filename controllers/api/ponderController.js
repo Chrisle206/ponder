@@ -38,10 +38,12 @@ router.get("/specific/:id", async (req, res) => {
 //Anywhere you do a render in an API route, split up into HTML routes for separating jobs (API is for interacting with database, Home is from rendering pages)
 //Shows three most recent ponders.
 router.get("/", (req, res) => {
-    Ponder.findAll().then(ponders => {
+    Ponder.findAll({include: [User, {model: Comment, include: [User]}]})
+    .then(ponders => {
         let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
-
-        res.json(recent);
+        const ponder = recent.map((post) => post.get({ plain: true }));
+        // res.json(ponder);
+        res.render('random', { ponder });
     });
 });
 
