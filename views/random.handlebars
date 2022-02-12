@@ -1,13 +1,14 @@
 <figure class="main-card">
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+{{#each ponder}}
+<div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
 
-  <div class="card-header">{{ponder.User.username}}</div>
+  <div class="card-header">{{User.username}}</div>
   <div class="card-body">
 
-    <p class="card-text">{{ponder.body}}</p>
+    <p class="card-text">{{body}}</p>
   </div>
 
-  {{#each ponder.Comments}}
+  {{#each Comments}}
   <div class="card-body">
     <p class="card-text">{{User.username}}: {{body}}</p>
   </div>
@@ -31,4 +32,5 @@
 </svg> Downvote</button>
 
 </div>
+{{/each}}
 </figure>
