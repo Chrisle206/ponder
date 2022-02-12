@@ -9,6 +9,7 @@ const AnonymousProfileId = 1;
 var filter = new Filter();
 filter.addWords(...badWordsArray);
 //GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
+//TODO: This route now exists in the htmlController file, therefore there is no need for it here.
 router.get("/specific/:id", async (req, res) => {
     try {
         const postData = await Ponder.findByPk(req.params.id, {
@@ -22,9 +23,9 @@ router.get("/specific/:id", async (req, res) => {
         });
     
         if (postData) {
-          const post = postData.get({ plain: true });
+          const ponder = postData.get({ plain: true });
     
-          res.render('ponder', { post });
+          res.render('ponder', { ponder });
           // res.json(post)
         } else {
           res.status(404).end();
@@ -35,7 +36,7 @@ router.get("/specific/:id", async (req, res) => {
     });
 
 //TODO: Anonymous post route, separate from logged in post route, if checkbox is 'true', with userId hardcoded to 1
-//Anywhere you do a render in an API route, split up into HTML routes for separating jobs (API is for interacting with database, Home is from rendering pages)
+//Anywhere you do a render in an API route, split up into HTML routes for separating jobs (API is for interacting with database, Home is for rendering pages)
 //Shows three most recent ponders.
 router.get("/", (req, res) => {
     Ponder.findAll().then(ponders => {

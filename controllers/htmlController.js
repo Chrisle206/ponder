@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Ponder, Comment } = require("../models");
 
 //GET route for viewing a random ponder.
-//TODO: Need a get route that will show ponders WITHOUT comments as well, for the 'recent ponders' aside.
+//TODO: Right now, if a user is logged in, some of the content from the ponder template doesn't render to the loggedin layout.
 router.get("/random", (req, res) => {
     Ponder.findAll({
       include: [User, Comment]
@@ -10,10 +10,14 @@ router.get("/random", (req, res) => {
       const singlePonder = array[Math.floor(Math.random()*array.length)]
         const ponder = singlePonder.get({ plain: true });
         console.log(ponder);
+        if (req.session) {
+        res.render('ponder', { 
+          layout: 'loggedin',
+          ponder });
+        }
         res.render('ponder', { ponder });
-  });
-    
     });
+});
 
 
 router.get("/specific/:id", async (req, res) => {

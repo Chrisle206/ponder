@@ -10,7 +10,16 @@ router.use("/", htmlController)
 
 //Homepage
 router.get("/", (req, res) => {
-    res.render('form');
+    res.render('form', {
+      layout: 'main'
+    });
+  });
+
+//Homepage if logged in  
+router.get("/active", (req, res) => {
+    res.render('form', {
+      layout: 'loggedin'
+    });
   });
 
 router.get("/pondertest", (req, res) => {
