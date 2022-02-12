@@ -43,10 +43,12 @@ router.post("/signup", (req,res) => {
     })
 })
 //Logout route
-router.get("/logout",(req,res)=>{
-    req.session.destroy();
-    document.location.replace('/');
-    res.send("Logged out.")
+router.post("/logout", (req,res)=>{
+    req.session.destroy(() => {
+        document.location.replace('/');
+        res.send("Logged out.")    
+        res.status(204).end();
+    });
 })
 
 //Show all users, this is for troubleshooting
