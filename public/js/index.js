@@ -11,6 +11,7 @@
         const anonymousInput = document.querySelector('#anonymous-check');
         const castBtn = document.querySelector('.cast-btn');
         const goFishingBtn = document.querySelector('.go-fishing-btn');
+        const AnonymousProfileId = 1;
 
     castBtn.onclick = async (event) => {
         event.preventDefault();
@@ -18,15 +19,14 @@
         let ponderText = ponderInput.value;
         let categoryPick = categoryInput.value;
         let anonymousCheck = anonymousInput.checked;
-        // let ponderId = ""
         
         console.log(`Ponder text field value: ${ponderText}`);
         console.log(`Chosen category: ${categoryPick}`);
         console.log(`Checkbox is checked: ${anonymousCheck}`);
         // TODO: assign 1 to UserId if anonymousCheck is true
         // if false assign to req.session.user.id
-
-        const response = await fetch('/api/ponder/', {
+      if (anonymousCheck) {
+        const response = await fetch('/api/ponder/anonymous', {
             method: 'POST',
             body: JSON.stringify({
               body: ponderText,
@@ -36,23 +36,27 @@
             redirect: 'follow',
           })
           const postId = await response.json()
-          // await fetch(`/api/ponder/specific/1}`, {
-          //     method: 'GET',
-          // },
           console.log(postId.id)
           location.replace(`/specific/${postId.id}`)
-          // )
-          // // .then(res => {
-          //   if(res.ok){
-          //     location.href="/api/ponder/specific/1"
-          //   } else {
-          //     alert("This alert means it didn't work")
-          //   }
-          // });
-          // location.replace(`/api/ponder/specific/${data.UserId}`)
+        } else {
+        const response = await fetch('/api/ponder/', {
+          method: 'POST',
+          body: JSON.stringify({
+            body: ponderText,
+            CategoryId: categoryPick,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+          redirect: 'follow',
+        })
+        const postId = await response.json()
+        console.log(postId.id)
+        location.replace(`/specific/${postId.id}`)
+      }
+      
+      };
 
-        };
 
+//TODO: Logic for gofishing click may need to be reinstated if we are to allow the user to go fishing by category. Currently, the user can only fish randomly because there is an anchor tag around the button which redirects the user directly towards   /  random.
     // goFishingBtn.onclick = () => {
     //   await fetch('/api/ponder/random', {
     //     method: 'GET',

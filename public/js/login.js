@@ -18,7 +18,7 @@ const loginFormHandler = async function(event) {
     if (response.ok) {
       document.location.replace('/active');
     } else {
-      alert('Failed to login');
+      alert('Incorrect username/password.');
     }
   };
   

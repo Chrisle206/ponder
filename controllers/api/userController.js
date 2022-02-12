@@ -45,8 +45,7 @@ router.post("/signup", (req,res) => {
 //Logout route
 router.post("/logout", (req,res)=>{
     req.session.destroy(() => {
-        document.location.replace('/');
-        res.send("Logged out.")    
+        // res.send("Logged out.")    
         res.status(204).end();
     });
 })
