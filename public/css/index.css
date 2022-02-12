@@ -1,6 +1,7 @@
 * {
     font-family: 'Nunito', 'Geneva', 'Verdana', sans-serif;
-    --bg-color: #FDF3CC;
+    /* --bg-color: #FDF3CC; */
+    --bg-color: white;
     --nav-font-color: rgb(11, 69, 11);
     --font-color: #ffffff;
     --pond-color: #8ACDEA;
@@ -29,37 +30,47 @@ body {
 }
 
 .main-card {
-   background: rgb(158,226,255);
-   background: radial-gradient(circle, rgba(158,226,255,1) 13%, rgba(138,205,234,1) 57%, rgba(138,205,234,1) 100%);
-   border-radius: 200px;
-   height: 550px;
-   width: 700px;
+   background-color: var(--pond-color);
+   height: 700px;
+   width: 100%;
    margin: 20px auto;
    padding: 100px 50px;
    font-size: 25px;
+   z-index: 300;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+.formcontainer{
+   width: 50%;
+   height: auto;
+}
+.righthalf{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
-.container{
+.ripplecontainer{
     display: flex;
-   height: 100vh;
    width: 100%;
    align-items: center;
    justify-content: center;
+   height: 400px;
 
 }
-
-.container button {
+.ripleo {
    position: absolute;
    animation: ripple 5s infinite;
    border-radius: 100%;
    border: none;
    background-color: var(--pond-color);
-   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px lightsteelblue;
+   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px #ffffff;
    transition: 0.33s ease-in all;
    opacity: 0;
 }
 
- .container button::after {
+ .ripleo::after {
     content: "";
     display: block;
     border-radius: 100%;
@@ -67,18 +78,18 @@ body {
     top: 0;
     left: 0;
  box-shadow: inset 10px 10px 20px lightblue,
-             inset -10px -1px 20px lightsteelblue;
+             inset -10px -1px 20px #ffffff;
     opacity: 0;
     transition: 1s ease all;
  }
 
- .container button:hover {
-    box-shadow: 0px 0px 0px lightsteelblue;
+ .ripleo:hover {
+    box-shadow: 0px 0px 0px #ffffff;
     opacity: 0;
     transform: scale(1);
  }
 
- .container button:hover::after {
+ .ripleo:hover::after {
     transition: 1s ease all;
     opacity: 1;
  }
@@ -90,28 +101,28 @@ body {
       opacity: 1;
    }
    100% {
-      width: 800px;
+      width: 400px;
       height: 400px;
       opacity: 0;
    }
 }
 
-.container button:nth-child(1) {
+.ripleo:nth-child(1) {
    animation-delay: 500ms;
 }
 
-.container button:nth-child(2) {
+.ripleo:nth-child(2) {
    animation-delay: 1000ms;
 }
 
-.container button:nth-child(3) {
+.ripleo:nth-child(3) {
    animation-delay: 1500ms;
 }
 
-.container button:nth-child(4) {
+.ripleo:nth-child(4) {
    animation-delay: 2000ms;
 }
 
-.container button:nth-child(5) {
+.ripleo:nth-child(5) {
    animation-delay: 2500ms;
 }
