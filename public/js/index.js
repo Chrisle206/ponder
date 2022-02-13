@@ -3,9 +3,8 @@
 
 // TODO: find a way to check relative url instead of hardcoding it
 //TODO: Try catch blcok to prevent crash
-// if(window.location.href=="http://localhost:3001/") {
 
-
+if(window.location.pathname=="/") {
         const ponderInput = document.querySelector('.ponder-input');
         const categoryInput = document.querySelector('.category-input');
         const anonymousInput = document.querySelector('#anonymous-check');
@@ -65,4 +64,4 @@
     // }
 
 
-// }
+}
