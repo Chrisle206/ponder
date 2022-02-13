@@ -1,3 +1,5 @@
+const loginbtn = document.querySelector('#loginbtn');
+
 const loginFormHandler = async function(event) {
     event.preventDefault();
   
@@ -14,12 +16,11 @@ const loginFormHandler = async function(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/active');
     } else {
-      alert('Failed to login');
+      alert('Incorrect username/password.');
     }
   };
   
-var loginbtn = document.querySelector('#loginbtn');
 loginbtn.addEventListener('click', loginFormHandler);
   

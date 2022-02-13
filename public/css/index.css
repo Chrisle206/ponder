@@ -7,9 +7,9 @@
     --pond-color: #8ACDEA;
 }
 
-.ponder-nav {
-    display: flex;
-    color: var(--nav-font-color);
+a {
+   color: white;
+   text-decoration: none;
 }
 
 .nav-left-corner {
@@ -41,6 +41,15 @@ body {
    justify-content: space-evenly;
    align-items: center;
 }
+
+.the-pond {
+   background: rgb(158,226,255);
+   background: radial-gradient(circle, rgba(158,226,255,1) 13%, rgba(138,205,234,1) 57%, rgba(138,205,234,1) 100%);
+   border-radius: 200px;
+   height: 550px;
+   width: 700px;
+  
+}
 .formcontainer{
    width: 50%;
    height: auto;
@@ -57,6 +66,45 @@ body {
    align-items: center;
    justify-content: center;
    height: 400px;
+}
+.ponder-username {
+
+}
+
+.ponder-text {
+
+}
+
+.comment-username {
+ /* not used at the moment */
+}
+
+.comment-text {
+
+}
+
+.comment-btn {
+   
+}
+
+.upvote-btn {
+
+}
+
+.downvote-btn {
+
+}
+
+.go-fishing-btn {
+
+}
+
+.container{
+   display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 
 }
 .ripleo {
