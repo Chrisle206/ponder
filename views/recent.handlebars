@@ -1,11 +1,11 @@
 <figure class="the-pond">
-
+{{#each ponder}}
 <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
 
-    <div class="card-header">{{ponder.User.username}} thinks...</div>
+    <div class="card-header">{{User.username}} thinks...</div>
     <div class="card-body">
 
-      <p class="card-text">{{ponder.body}}</p>
+      <p class="card-text">{{body}}</p>
     </div>
   <div>
     {{!-- comment button --}}
@@ -26,7 +26,7 @@
     </svg> Downvote</button>
   </div>
 
-    {{#each ponder.Comments}}
+    {{#each Comments}}
     <div class="card-body">
       <p class="card-text">{{User.username}}: {{body}}</p>
     </div>
@@ -54,4 +54,5 @@
 
 <a href = "/random"><button type="button" class="btn btn-danger btn-lg go-fishing-btn">Go fishing!</button></a>
 <button hidden type="button" class="btn btn-success btn-lg cast-btn">Cast</button>
+{{/each}}
 </figure>

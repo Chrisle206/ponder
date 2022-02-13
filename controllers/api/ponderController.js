@@ -41,8 +41,9 @@ router.get("/", (req, res) => {
     .then(ponders => {
         let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
         const ponder = recent.map((post) => post.get({ plain: true }));
+        console.log(ponder);
         // res.json(ponder);
-        res.render('random', { ponder });
+        res.render('recent', { ponder });
     });
 });
 
@@ -105,6 +106,5 @@ router.delete("/:id", (req, res) => {
         where: {id: req.params.id}
     });
 });
-
 
 module.exports = router;

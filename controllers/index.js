@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const htmlController = require("./htmlController");
 const routes = require("./api");
-const { User } = require('../models');
+const { User, Ponder } = require('../models');
 
 
 router.use("/api", routes);
@@ -11,12 +11,21 @@ router.use("/", htmlController)
 
 //Homepage if not logged in
 router.get("/", (req, res) => {
-    if (req.session.user) {
-      res.redirect('/active')
-    }
-  res.render('form', {
-      layout: 'main'
-    });
+
+  Ponder.findAll({include: [User]})
+  .then(ponders => {
+      let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
+      const ponder = recent.map((post) => post.get({ plain: true }));
+      // res.json(ponder);
+      res.render('form', { ponder });
+  });
+
+  //   if (req.session.user) {
+  //     res.redirect('/active')
+  //   }
+  // res.render('form', {
+  //     layout: 'main'
+  //   });
   });
 
 //Homepage if logged in  
