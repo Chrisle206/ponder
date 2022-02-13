@@ -1,13 +1,22 @@
 * {
-    font-family: 'Nunito', 'Geneva', 'Verdana', sans-serif;
-    --bg-color: #FDF3CC;
-    --nav-font-color: rgb(11, 69, 11);
-    --font-color: #ffffff;
-    --pond-color: #8ACDEA;
+   font-family: 'Metrophobic', 'Geneva', 'Verdana', sans-serif;
+   --bg-color: white;
+   --nav-font-color: rgb(11, 69, 11);
+   --font-color-light: #ffffff;
+   --font-color-dark: #000000;
+   --pond-color: #8ACDEA;
+   --pond-color-blue: #73abe7;
+   --fish-color: #f8ffe5;
+   --cast-color-dark: #037971;
+   --palette-yellow: #f8f32b;
+   --palette-rose: #f45b69;
+   --mud: #846c5b;
+
 }
 
+
 a {
-   color: white;
+   color: var(--font-color-dark);
    text-decoration: none;
 }
 
@@ -17,60 +26,177 @@ a {
 
 #ponder-logo {
     font-size: 60px;
+    font-family: 'MuseoModerno', cursive;
 }
 
 #ponder-slogan {
-    font-size: 20px;
+    color: var(--font-color-light);
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 50px;
 }
 
 body {
-    background: var(--bg-color);
-    color: var(--font-color);
+    background: var(--pond-color);
+    color: var(--font-color-dark);
+}
+.nav{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 100px;
+   border-bottom: solid 2px var(--font-color-light);
+   margin: 0 30px;
+   padding: 0 30px;
+   
+}
+.navleft{
+   color: var(--font-color-light)
+}
+.main-card {
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--pond-color);
+   height: 100vh;
+   width: 100%;
+   padding: 100px 0;
 }
 
 .the-pond {
-   background: rgb(158,226,255);
-   background: radial-gradient(circle, rgba(158,226,255,1) 13%, rgba(138,205,234,1) 57%, rgba(138,205,234,1) 100%);
-   border-radius: 200px;
-   height: 550px;
-   width: 700px;
-   margin: 20px auto;
-   padding: 100px 50px;
+   display: flex;
+   margin: 0 auto 50px;
+   width: 800px;
    font-size: 25px;
+   z-index: 300;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: solid white 1px;
+   padding-bottom: 50px;
+}
+.formcontainer{
+   width: 50%;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 30px;
+   padding: 30px;
+   background-color: white;
+}
+.input-header{
+   margin-bottom: 30px;
+   text-align: center;
+}
+.ponder-input{
+   font-size: 18px;
+   width: 100%;
+   min-height: 100px;
+   border: none;
+   box-shadow: 0px 0px 2px gray;
+   border-radius: 10px;
+   padding: 16px;
+}
+.anonymous{
+   font-size: 18px;
+   color: var(--font-color-dark);
+}
+.righthalf{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.recentponders{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.recents-title{
+   width: 800px;
+   font-size: 24px;
+   margin: 40px;
+
+}
+.signupbtn{
+   background-color: var(--bg-color);
+   color: black;
+   margin-left: 10px;
+}
+.pondercardheader{
+   background-color: var(--pond-color-dark);
+}
+.pondercard{
+   width: 800px;
+   /* background-color: #f8ffe5; */
+   background-color: white;
+   margin: 14px;
+   /* box-shadow: 2px 2px 8px #00378F; */
+   border: none;
+   border-radius: 30px;
 }
 
 .ponder-username {
-
+   font-size: 18px;
+   margin: 10px;
+   color: var(--nav-font-color);
+   font-weight: bold;
 }
 
 .ponder-text {
-
+   margin: 10px;
+}
+.ponderbtns{
+   margin: 10px 20px;
+   display: flex;
+   justify-content: flex-end;
 }
 
+
 .comment-username {
- /* not used at the moment */
+   /* not used at the moment */
 }
 
 .comment-text {
-
-}
-
-.comment-btn {
    
 }
 
-.upvote-btn {
+.comment-btn {
+   color: var(--font-color-dark)
+}
 
+.upvote-btn {
+   color: var(--font-color-dark)
 }
 
 .downvote-btn {
-
+   color: var(--font-color-dark)
+}
+.cast-btn{
+   background-color: var(--cast-color-dark);
+   color: var(--font-color-light);
+}
+.fish-btn {
+   z-index: 300;
+   background-color: var(--fish-color);
+   color: var(--font-color-dark);
+   border-radius: 100%;
+   width: 100px;
+   height: 100px;
+   box-shadow: 0px 0px 10px var(--cast-color-dark);
 }
 
-.go-fishing-btn {
-
+/* RIPPLE EFFECT */
+.ripplecontainer{
+    display: flex;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   height: 400px;
+   margin-right: 200px;
 }
-
 .container{
    display: flex;
   height: 100vh;
@@ -79,19 +205,19 @@ body {
   justify-content: center;
 
 }
-
-.container button {
+.ripleo {
    position: absolute;
    animation: ripple 5s infinite;
    border-radius: 100%;
    border: none;
    background-color: var(--pond-color);
-   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px lightsteelblue;
+   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px #ffffff;
    transition: 0.33s ease-in all;
    opacity: 0;
+   z-index: -1;
 }
 
- .container button::after {
+ .ripleo::after {
     content: "";
     display: block;
     border-radius: 100%;
@@ -99,51 +225,51 @@ body {
     top: 0;
     left: 0;
  box-shadow: inset 10px 10px 20px lightblue,
-             inset -10px -1px 20px lightsteelblue;
+             inset -10px -1px 20px #ffffff;
     opacity: 0;
     transition: 1s ease all;
  }
 
- .container button:hover {
-    box-shadow: 0px 0px 0px lightsteelblue;
+ .ripleo:hover {
+    box-shadow: 0px 0px 0px #ffffff;
     opacity: 0;
     transform: scale(1);
  }
 
- .container button:hover::after {
+ .ripleo:hover::after {
     transition: 1s ease all;
     opacity: 1;
  }
 
 @keyframes ripple {
    0% {
-      width: 20px;
-      height: 20px;
+      width: 170px;
+      height: 170px;
       opacity: 1;
    }
    100% {
-      width: 800px;
-      height: 400px;
+      width: 300px;
+      height: 300px;
       opacity: 0;
    }
 }
 
-.container button:nth-child(1) {
+.ripleo:nth-child(1) {
    animation-delay: 500ms;
 }
 
-.container button:nth-child(2) {
+.ripleo:nth-child(2) {
    animation-delay: 1000ms;
 }
 
-.container button:nth-child(3) {
+.ripleo:nth-child(3) {
    animation-delay: 1500ms;
 }
 
-.container button:nth-child(4) {
+.ripleo:nth-child(4) {
    animation-delay: 2000ms;
 }
 
-.container button:nth-child(5) {
+.ripleo:nth-child(5) {
    animation-delay: 2500ms;
 }
