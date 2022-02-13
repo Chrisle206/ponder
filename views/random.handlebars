@@ -1,50 +1,13 @@
-<figure class="main-card">
-  <h2 id="ponder-slogan">The Social Media for Anonymous Thinkpieces</h2>
-<div class="the-pond">
- <div class="formcontainer">
-  <h2 class="input-header">What's on your mind?</h2>
-<div class="form-floating">
-  <textarea class="ponder-input"placeholder="Why should you pour cereals before milk?" id="floatingTextarea"></textarea>
-</div>
-
-<br>
-<select class="form-select category-input">
-  <option selected>What category?</option>
-  <option value="1">Art</option>
-  <option value="2">Philosophy</option>
-  <option value="3">Community</option>
-  <option value="4">Family</option>
-  <option value="5">Romance and relationships</option>
-</select>
-<br>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="anonymous-check" checked>
-  <label class="form-check-label anonymous" for="flexCheckChecked">
-    Post anonymously?
-  </label>
-</div>
-<br>
-<button type="button" class="btn btn-lg cast-btn">Cast</button>
-</div>
-<div class="righthalf" >
- <div class="ripplecontainer">
-<a href = "/random"><button type="button" class="btn btn-lg fish-btn">Fish</button></a>
-        <button class="ripleo"></button>
-        <button class="ripleo"></button>
-        <button class="ripleo"></button>
-        <button class="ripleo"></button>
-        <button class="ripleo"></button>
-        </div>
-</div>
-</div>
-<h2 class="recents-title">Newest ponders:</h2>
-<div class="recentponders">
-  {{#each ponder}}
+<figure class="the-pond">
   <div class="card pondercard">
-      <div class="card-body">
-        <div class="ponder-username">{{User.username}}:</div>
-        <p class="card-text ponder-text"><a href="/specific/{{id}}">"{{body}}"</a></p>
-      </div>
+
+
+    <div class="card-header ponder-username">{{ponder.User.username}} thinks...</div>
+    <div class="card-body">
+
+      <p class="card-text ponder-text">{{ponder.body}}</p>
+    </div>
+  <div>
     <div class="ponderbtns">
       {{!-- comment button --}}
       <button type="button" class="btn comment-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
@@ -63,7 +26,16 @@
 </svg></button>
     </div>
   </div>
+
+    {{#each ponder.Comments}}
+    <div class="card-body">
+      <p class="card-text">{{User.username}}: {{body}}</p>
+    </div>
+  
+  
   {{/each}}
 
+<a href = "/random"><button type="button" class="btn btn-danger btn-lg go-fishing-btn">Go fishing!</button></a>
+<button hidden type="button" class="btn btn-success btn-lg cast-btn">Cast</button>
+</figure>
 </div>
- </figure>
