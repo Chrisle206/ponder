@@ -27,9 +27,9 @@
 {{#each ponder}}
 <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
 
-    <div class="card-header">{{User.username}} thinks...</div>
+    <div class="card-header ponder-username">{{User.username}} thinks...</div>
     <div class="card-body">
-      <p class="card-text"><a href="/specific/{{id}}">{{body}}</a></p>
+      <p class="card-text ponder-text"><a href="/specific/{{id}}">{{body}}</a></p>
     </div>
   <div>
     {{!-- comment button --}}
