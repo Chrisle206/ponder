@@ -130,26 +130,27 @@ body {
 }
 .pondercard{
    width: 800px;
-   /* background-color: #f8ffe5; */
    background-color: white;
    margin: 14px;
-   /* box-shadow: 2px 2px 8px #00378F; */
    border: none;
    border-radius: 30px;
+   padding: 20px;
 }
-.commentsection{
-   margin-top: 20px;
-   border-top: solid gray 1px;
+.comments-title{
+   font-size: 24px;
+   margin: 20px 0 20px 0;
+}
+.comment-text{
+   margin: 20px 0;
 }
 .ponder-username {
-   font-size: 18px;
-   margin: 10px;
+   font-size: 24px;
    color: var(--nav-font-color);
    font-weight: bold;
+   margin: 10px 0px;
 }
 
 .ponder-text {
-   margin: 10px;
 }
 .ponderbtns{
    margin: 10px 20px;

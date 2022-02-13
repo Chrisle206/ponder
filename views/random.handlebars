@@ -19,12 +19,14 @@
 </svg></button>
     </div>
   </div>
-
+<h2 class="comments-title">Comments: </h2>
     {{#each ponder.Comments}}
-    
-      <p class="card-text comment-tex">{{User.username}}: {{body}}</p>
-
+      <p class="card-text comment-text">{{User.username}}: {{body}}</p>
     {{/each}}
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="commentTextarea"></textarea>
+  <label for="commentTextarea">Comment here...</label>
+</div>
 
   </div>
    
