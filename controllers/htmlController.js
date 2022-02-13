@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Ponder, Comment } = require("../models");
+const { User, Ponder, Comment} = require("../models");
 
 //GET route for viewing a random ponder.
 router.get("/random", (req, res) => {
@@ -44,16 +44,16 @@ router.get("/specific/:id", async (req, res) => {
         const ponder = postData.get({ plain: true });
         console.log(ponder);
           if (req.session.user) {
-            const user = req.session.user;
-            res.render('ponder', { 
-              layout: 'loggedin',
-              ponder, user });
-            } else {
-            res.render('ponder', { 
-              layout: 'main',
-              ponder });
+            // const user = req.session.user;
+            // res.render('ponder', { 
+            //   layout: 'loggedin',
+            //   ponder, user });
+            // } else {
+            // res.render('ponder', { 
+            //   layout: 'main',
+            //   ponder });
             }
-          // res.json(post)
+          res.json(ponder)
         } else {
           res.status(404).end();
         }
