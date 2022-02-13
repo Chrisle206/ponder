@@ -3,6 +3,8 @@ const router = express.Router();
 var Filter = require('bad-words');
 const badWordsArray = require('../../lib/seeds/profanities')
 const { User, Ponder, Comment, Vote } = require("../../models");
+const { timeStamp } = require("console");
+const { increment } = require("../../models/User");
 const AnonymousProfileId = 1;
 
 //To use these routes, type localhost:3000/api/ponder as your base URL.
@@ -98,6 +100,30 @@ router.post("/anonymous", async (req,res) => {
     console.log(err);
     res.status(500).json(err);
   }
+})
+
+router.put("/upvote/:id", (req, res) => {
+  Ponder.findByPk(req.params.id).then(ponder => {
+    const prevUpVote = ponder.upvote;
+    Ponder.update(
+      {upvote: prevUpVote + 1},
+      {where: {id: req.params.id}}
+    ).then(ponder => {
+      res.send(ponder)
+    })
+  })
+})
+
+router.put("/downvote/:id", (req, res) => {
+  Ponder.findByPk(req.params.id).then(ponder => {
+    const prevDownVote = ponder.downvote;
+    Ponder.update(
+      {downvote: prevDownVote + 1},
+      {where: {id: req.params.id}}
+    ).then(ponder => {
+      res.send(ponder)
+    })
+  })
 })
 
 //Route for deleting a Ponder.
