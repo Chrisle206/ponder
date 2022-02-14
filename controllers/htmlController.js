@@ -107,5 +107,24 @@ router.get('/user/:id', async (req, res) => {
   }
 });
 
+//GET route for rendering our 'About' page
+router.get("/about", async (req,res) => {
+  try {
+    if (req.session.user) {
+      const user = req.session.user;
+      res.render('about', { 
+        layout: 'loggedin',
+        user 
+      });
+      } else {
+      res.render('about', { 
+        layout: 'main' 
+      });
+      };
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+})
 
 module.exports = router; 
