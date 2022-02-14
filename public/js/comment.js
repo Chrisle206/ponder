@@ -5,7 +5,8 @@ if (window.location.pathname=="/" || window.location.pathname=="/active") {
 } else {
 const commentSubmit = async function(event) {
     event.preventDefault();
-  
+    
+    const downvoteBtn = document.querySelector('.downvote-btn')
     const commentEl = document.querySelector('#commentTextarea');
     const ponderId = downvoteBtn.id;
     const response = await fetch('/api/comments', {

@@ -2,24 +2,28 @@
   <h2 id="ponder-slogan">The Social Media for Anonymous Thinkpieces</h2>
 <div class="the-pond">
  <div class="formcontainer">
+
   <h2 class="input-header">What's on your mind?</h2>
+{{!-- <div class="imagecontainer">
+  <img class="frogimage" src="/images/frog.png" alt="frogg"/>
+</div> --}}
 <div class="form-floating">
   <textarea class="ponder-input" id="floatingTextarea"></textarea>
 </div>
 
 <br>
 <select class="form-select category-input">
-  <option selected>What category?</option>
-  <option value="1">No Category</option>
-  <option value="2">Coding</option>
-  <option value="3">Gaming</option>
-  <option value="4">Technology</option>
-  <option value="5">Food</option>
-  <option value="6">Advice</option>
-  <option value="7">Conversation</option>
-  <option value="8">Philosophy</option>
-  <option value="9">Art</option>
-  <option value="10">Romance</option>
+  <option selected value="1">What category?</option>
+  <option value="2">No Category</option>
+  <option value="3">Coding</option>
+  <option value="4">Gaming</option>
+  <option value="5">Technology</option>
+  <option value="6">Food</option>
+  <option value="7">Advice</option>
+  <option value="8">Conversation</option>
+  <option value="9">Philosophy</option>
+  <option value="10">Art</option>
+  <option value="11">Romance</option>
 </select>
 <br>
 <div class="form-check">
@@ -29,11 +33,16 @@
   </label>
 </div>
 <br>
-<button type="button" class="btn btn-lg cast-btn">Cast</button>
+<button type="button" class="btn btn-lg cast-btn">Cast  <img class="fishingrod" src="/images/fishinrod.png" alt="fishing_rod"/></button>
 </div>
 <div class="righthalf" >
  <div class="ripplecontainer">
-<a href = "/random"><button type="button" class="btn btn-lg fish-btn">Go Fish!</button></a>
+<a href = "/random"><button type="button" class="btn btn-lg">
+ <img class="fish" src="/images/fish.png" alt="_fish"/>
+  <h2 class="gofishheader">Go fishing!</h2>
+</button></a>
+{{!-- <a href = "/random"><button type="button" class="btn btn-lg fish-btn">Go Fish!
+</button></a> --}}
         <button class="ripleo"></button>
         <button class="ripleo"></button>
         <button class="ripleo"></button>
@@ -42,12 +51,14 @@
         </div>
 </div>
 </div>
+
 <h2 class="recents-title">Newest ponders:</h2>
+
 <div class="recentponders">
   {{#each ponder}}
   <div class="card pondercard">
       <div class="card-body">
-        <div class="ponder-username">{{User.username}}:</div>
+        <a href="/user/{{User.id}}"><div class="ponder-username">{{User.username}}:</div></a>
         <p class="card-text ponder-text"><a href="/specific/{{id}}">"{{body}}"</a></p>
       </div>
     <div class="ponderbtns">

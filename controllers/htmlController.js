@@ -63,4 +63,49 @@ router.get("/specific/:id", async (req, res) => {
       }
     });
 
+//GET route for viewing all of a user's ponder, called on when a user visits their profile page.
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [{model: Ponder, include: [User]}],
+    });
+    const userPonders = userData.get({ plain: true });
+    if (userPonders.Ponders.length === 0) {
+      console.log('u have no ponders lol')
+      if (req.session.user) {
+        const user = req.session.user;
+        res.render('noponder', { 
+          layout: 'loggedin',
+          user 
+        });
+        } else {
+        res.render('noponder', { 
+          layout: 'main'
+        });
+      };
+  } else if (userPonders.Ponders.length > 0) {
+      console.log(userPonders.Ponders);
+        if (req.session.user) {
+          const user = req.session.user;
+          res.render('profile', { 
+            layout: 'loggedin',
+            userPonders, user 
+          });
+          } else {
+          res.render('profile', { 
+            layout: 'main',
+            userPonders 
+          });
+          };
+      } else {
+        console.log('terminus');
+        res.status(404).end();
+      };
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router; 
