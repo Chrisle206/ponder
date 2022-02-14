@@ -9,7 +9,7 @@ router.use("/", htmlController)
 // const filter = require('bad-words');
 
 
-//Homepage if not logged in
+//Homepage if not logged in, this route also displays the most recent 3 ponders
 router.get("/", (req, res) => {
   if (req.session.user) {
     res.redirect('/active')
@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
   };
 });
 
-//Homepage if logged in  
+//Homepage if logged in, this route also displays the most recent 3 ponders
 router.get("/active", async (req, res) => {
   if (req.session.user) {
     const userSeq = await User.findByPk(req.session.user.id);

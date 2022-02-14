@@ -13,17 +13,17 @@
 
 <br>
 <select class="form-select category-input">
-  <option selected>What category?</option>
-  <option value="1">No Category</option>
-  <option value="2">Coding</option>
-  <option value="3">Gaming</option>
-  <option value="4">Technology</option>
-  <option value="5">Food</option>
-  <option value="6">Advice</option>
-  <option value="7">Conversation</option>
-  <option value="8">Philosophy</option>
-  <option value="9">Art</option>
-  <option value="10">Romance</option>
+  <option selected value="1">What category?</option>
+  <option value="2">No Category</option>
+  <option value="3">Coding</option>
+  <option value="4">Gaming</option>
+  <option value="5">Technology</option>
+  <option value="6">Food</option>
+  <option value="7">Advice</option>
+  <option value="8">Conversation</option>
+  <option value="9">Philosophy</option>
+  <option value="10">Art</option>
+  <option value="11">Romance</option>
 </select>
 <br>
 <div class="form-check">
@@ -58,7 +58,7 @@
   {{#each ponder}}
   <div class="card pondercard">
       <div class="card-body">
-        <div class="ponder-username">{{User.username}}:</div>
+        <a href="/user/{{User.id}}"><div class="ponder-username">{{User.username}}:</div></a>
         <p class="card-text ponder-text"><a href="/specific/{{id}}">"{{body}}"</a></p>
       </div>
     <div class="ponderbtns">
