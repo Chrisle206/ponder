@@ -18,18 +18,22 @@ router.post("/", (req, res) => {
     if (req.session.user) {
         Comment.create({
             body: req.body.body,
-            user_id: req.session.user.id,
-            ponder_id: req.body.ponder_id
+            UserId: req.session.user.id,
+            PonderId: req.body.ponder_id
         }).then(newComment => {
-            res.json(newComment);
+            const comment = newComment.get({ plain: true});
+            console.log(comment);
+            res.json(comment);
         });
     } else {
         Comment.create({
             body: req.body.body,
-            user_id: AnonymousProfileId,
-            ponder_id: req.body.ponder_id
+            UserId: AnonymousProfileId,
+            PonderId: req.body.ponder_id
         }).then(newComment => {
-            res.json(newComment);
+            const comment = newComment.get({ plain: true});
+            console.log(comment);
+            res.json(comment);
         });
     }
 });
