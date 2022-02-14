@@ -7,12 +7,8 @@ router.use("/api", routes);
 router.use("/", htmlController)
 // const filter = require('bad-words');
 
-<<<<<<< HEAD
-//Homepage if not logged in
-=======
 
 //Homepage if not logged in, this route also displays the most recent 3 ponders
->>>>>>> dev
 router.get("/", (req, res) => {
   if (req.session.user) {
     res.redirect('/active')
