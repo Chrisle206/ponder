@@ -44,16 +44,16 @@ router.get("/specific/:id", async (req, res) => {
         const ponder = postData.get({ plain: true });
         console.log(ponder);
           if (req.session.user) {
-            // const user = req.session.user;
-            // res.render('ponder', { 
-            //   layout: 'loggedin',
-            //   ponder, user });
-            // } else {
-            // res.render('ponder', { 
-            //   layout: 'main',
-            //   ponder });
+            const user = req.session.user;
+            res.render('ponder', { 
+              layout: 'loggedin',
+              ponder, user });
+            } else {
+            res.render('ponder', { 
+              layout: 'main',
+              ponder });
             }
-          res.json(ponder)
+          // res.json(ponder)
         } else {
           res.status(404).end();
         }
