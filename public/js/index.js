@@ -7,18 +7,18 @@
 // const formText = document.querySelector('#floatingTextArea');
 prompts = ["Why should you pour cereal before milk?", "Start the conversation.", "You know you want to!", "Get it off your chest.", "...does a fish know it's wet?", "Float along in a stream of thoughts...", "See what the world thinks.", "Just say it!", "Cast your thoughts into the Pond!"]
 
-function init () {
-  const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)]; 
-  document.querySelector('#floatingTextarea').placeholder = randomPrompt;
-}
 
-if(window.location.pathname=="/") {
+if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
         const ponderInput = document.querySelector('.ponder-input');
         const categoryInput = document.querySelector('.category-input');
         const anonymousInput = document.querySelector('#anonymous-check');
         const castBtn = document.querySelector('.cast-btn');
         const goFishingBtn = document.querySelector('.go-fishing-btn');
         const AnonymousProfileId = 1;
+        const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+        //Random prompt in form text field on page load. 
+        document.querySelector('#floatingTextarea').placeholder = randomPrompt;
+        
 
     castBtn.onclick = async (event) => {
         event.preventDefault();
@@ -72,5 +72,3 @@ if(window.location.pathname=="/") {
 
 
 }
-
-init();
