@@ -31,8 +31,25 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
         console.log(`Chosen category: ${categoryPick}`);
         console.log(`Checkbox is checked: ${anonymousCheck}`);
 
-      if (anonymousCheck) {
-        const response = await fetch('/api/ponder/anonymous', {
+      if (!ponderText) {
+        alert('Empty input field');
+        return;
+      } else {
+        if (anonymousCheck) {
+          const response = await fetch('/api/ponder/anonymous', {
+              method: 'POST',
+              body: JSON.stringify({
+                body: ponderText,
+                CategoryId: categoryPick,
+              }),
+              headers: { 'Content-Type': 'application/json' },
+              redirect: 'follow',
+            })
+            const postId = await response.json()
+            console.log(postId.id)
+            location.replace(`/specific/${postId.id}`)
+          } else {
+          const response = await fetch('/api/ponder/', {
             method: 'POST',
             body: JSON.stringify({
               body: ponderText,
@@ -44,23 +61,9 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
           const postId = await response.json()
           console.log(postId.id)
           location.replace(`/specific/${postId.id}`)
-        } else {
-        const response = await fetch('/api/ponder/', {
-          method: 'POST',
-          body: JSON.stringify({
-            body: ponderText,
-            CategoryId: categoryPick,
-          }),
-          headers: { 'Content-Type': 'application/json' },
-          redirect: 'follow',
-        })
-        const postId = await response.json()
-        console.log(postId.id)
-        location.replace(`/specific/${postId.id}`)
+        }
       }
-      
-      };
-
+    };
 
 //TODO: Logic for gofishing click may need to be reinstated if we are to allow the user to go fishing by category. Currently, the user can only fish randomly because there is an anchor tag around the button which redirects the user directly towards   /  random.
     // goFishingBtn.onclick = () => {
