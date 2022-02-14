@@ -49,6 +49,19 @@ body {
 .navleft{
    color: var(--font-color-light)
 }
+.navright{
+   display: flex;
+   align-items: center;
+}
+.profile{
+   color: white;
+   font-size: 24px;
+   display: flex;
+   align-items: center;
+}
+.loggedusername{
+   margin-left: 10px;
+}
 .main-card {
    display:flex;
    flex-direction: column;
@@ -113,6 +126,9 @@ body {
    font-size: 24px;
    margin: 40px;
 
+}
+#logoutbtn{
+   margin-left: 20px;
 }
 .signupbtn{
    background-color: var(--bg-color);
