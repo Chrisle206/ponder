@@ -53,7 +53,7 @@ router.get("/specific/:id", async (req, res) => {
               layout: 'main',
               ponder });
             }
-          res.json(ponder)
+          // res.json(ponder)
         } else {
           res.status(404).end();
         }
