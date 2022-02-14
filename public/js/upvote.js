@@ -25,5 +25,5 @@ const upvoteBtnClick = (upvoteBtn) => {
   }
 }
 
-// console.log(upvoteBtnArr);
+// adds event listener to each upvotebtn in array
 upvoteBtnArr.forEach(button => upvoteBtnClick(button));
