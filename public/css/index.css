@@ -19,10 +19,6 @@ a {
    text-decoration: none;
 }
 
-.nav-left-corner {
-    color: var(--nav-font-color);
-}
-
 #ponder-logo {
     font-size: 60px;
     font-family: 'MuseoModerno', cursive;
@@ -53,6 +49,19 @@ body {
 .navleft{
    color: var(--font-color-light)
 }
+.navright{
+   display: flex;
+   align-items: center;
+}
+.profile{
+   color: white;
+   font-size: 24px;
+   display: flex;
+   align-items: center;
+}
+.loggedusername{
+   margin-left: 10px;
+}
 .main-card {
    display:flex;
    flex-direction: column;
@@ -69,7 +78,6 @@ body {
    width: 800px;
    font-size: 25px;
    z-index: 300;
-   display: flex;
    justify-content: space-between;
    align-items: center;
    border-bottom: solid white 1px;
@@ -118,6 +126,9 @@ body {
    font-size: 24px;
    margin: 40px;
 
+}
+#logoutbtn{
+   margin-left: 20px;
 }
 .signupbtn{
    background-color: var(--bg-color);
@@ -296,4 +307,29 @@ body {
 
 .ripleo:nth-child(5) {
    animation-delay: 2500ms;
+}
+
+
+@media screen and (max-width: 1024px) {
+.nav{
+
+}
+.the-pond{
+flex-direction: column;
+justify-content: center;
+
+}
+.pondercard{
+   width: 100%;
+   min-width: 400px;
+   background-color: white;
+   margin: 14px 0px;
+   border-radius: 30px;
+   padding: 50px;
+}
+.recents-title{
+   width: 100%;
+   text-align: center;
+}
+
 }
