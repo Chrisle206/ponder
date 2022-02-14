@@ -3,11 +3,9 @@ const htmlController = require("./htmlController");
 const routes = require("./api");
 const { User, Ponder } = require('../models');
 
-
 router.use("/api", routes);
 router.use("/", htmlController)
 // const filter = require('bad-words');
-
 
 //Homepage if not logged in
 router.get("/", (req, res) => {
@@ -53,6 +51,11 @@ router.get("/pondertest", (req, res) => {
 router.get("/showsessions", (req, res) => {
     res.json(req.session);
   });
+
+router.get("/clearsessions/", (req, res) => {
+  req.session.destroy();
+  res.json(req.session);
+})
   
 
 module.exports = router;

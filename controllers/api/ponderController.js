@@ -6,6 +6,7 @@ const { User, Ponder, Comment, Vote } = require("../../models");
 const { timeStamp } = require("console");
 const { increment } = require("../../models/User");
 const AnonymousProfileId = 1;
+let sesh;
 
 //To use these routes, type localhost:3000/api/ponder as your base URL.
 var filter = new Filter();
@@ -103,30 +104,61 @@ router.post("/anonymous", async (req,res) => {
 })
 
 router.put("/upvote/:id", (req, res) => {
-  Ponder.findByPk(req.params.id).then(ponder => {
-    const prevUpVote = ponder.upvote;
-    Ponder.update(
-      {upvote: prevUpVote + 1},
-      {where: {id: req.params.id}}
-    ).then(ponder => {
-      console.log(ponder.upvote);
-      res.send(ponder)
-    })
-  })
+  const ponderId = req.params.id;
+  sesh = req.session;
+  // if there is no array for all votes create a new array
+  if (!sesh.allUpvotes) {sesh.allUpvotes = []};
+  if (!sesh.allUpvotes.includes(ponderId)) {
+    Ponder.findByPk(req.params.id).then(ponder => {
+        const prevUpVote = ponder.upvote;
+        Ponder.update(
+          {upvote: prevUpVote + 1},
+          {where: {id: ponderId}}
+        ).then(ponder => {
+          sesh.allUpvotes.push(ponderId);
+          res.send(ponder)
+        })
+      })
+  } else {
+    res.status(200).json();
+  }
 })
 
 router.put("/downvote/:id", (req, res) => {
-  Ponder.findByPk(req.params.id).then(ponder => {
-    const prevDownVote = ponder.downvote;
-    Ponder.update(
-      {downvote: prevDownVote + 1},
-      {where: {id: req.params.id}}
-    ).then(ponder => {
-      console.log(ponder.downvote);
-      res.send(ponder)
-    })
-  })
+  const ponderId = req.params.id;
+  sesh = req.session;
+  // if there is no array for all votes create a new array
+  if (!sesh.allDownvotes) {sesh.allDownvotes = []};
+  if (!sesh.allDownvotes.includes(ponderId)) {
+    Ponder.findByPk(req.params.id).then(ponder => {
+        const prevDownVote = ponder.downvote;
+        Ponder.update(
+          {downvote: prevDownVote + 1},
+          {where: {id: ponderId}}
+        ).then(ponder => {
+          sesh.allDownvotes.push(ponderId);
+          res.send(ponder)
+        })
+      })
+  } else {
+    res.status(200).json();
+  }
 })
+
+// old downvote code: 
+// sesh = req.session;
+// if (!sesh.allDownvotes) {sesh.allDownvotes = []};
+// Ponder.findByPk(req.params.id).then(ponder => {
+//   const prevDownVote = ponder.downvote;
+//   Ponder.update(
+//     {downvote: prevDownVote + 1},
+//     {where: {id: req.params.id}}
+//   ).then(ponder => {
+//     // console.log("this is the ponder id: " + req.params.id);
+//     sesh.allDownvotes.push(req.params.id);
+//     res.send(ponder)
+//   })
+// })
 
 //Route for deleting a Ponder.
 router.delete("/:id", (req, res) => {
