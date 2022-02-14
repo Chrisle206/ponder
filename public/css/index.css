@@ -14,7 +14,6 @@
 
 }
 
-
 a {
    color: var(--font-color-dark);
    text-decoration: none;
@@ -130,26 +129,39 @@ body {
 }
 .pondercard{
    width: 800px;
-   /* background-color: #f8ffe5; */
    background-color: white;
    margin: 14px;
-   /* box-shadow: 2px 2px 8px #00378F; */
    border: none;
    border-radius: 30px;
+   padding: 50px;
 }
-.commentsection{
-   margin-top: 20px;
-   border-top: solid gray 1px;
+.separator{
+   width: 100%;
+   background-color: var(--pond-color);
+   height: 2px;
+   margin: 0px auto 50px;
+}
+
+.comments-title{
+   font-size: 20px;
+
+}
+.comment-text{
+   margin: 30px 0;
+}
+.commentusername{
+   color: var(--palette-rose)
 }
 .ponder-username {
-   font-size: 18px;
-   margin: 10px;
-   color: var(--nav-font-color);
+   font-size: 24px;
+   color: var(--pond-color-blue);
    font-weight: bold;
+   margin: 10px 0px;
 }
 
 .ponder-text {
-   margin: 10px;
+   font-size: 20px;
+   margin: 40px 0 0 0;
 }
 .ponderbtns{
    margin: 10px 20px;
@@ -162,30 +174,43 @@ body {
 }
 
 .upvote-btn {
-   color: var(--font-color-dark)
+   color: green;
 }
 
 .downvote-btn {
-   color: var(--font-color-dark)
+   color: red;
 }
 .cast-btn{
-   background-color: var(--cast-color-dark);
+   background-color: green;
    color: var(--font-color-light);
 }
 .fish-btn {
    z-index: 300;
-   background-color: var(--fish-color);
-   color: var(--font-color-dark);
-   border-radius: 100%;
-   width: 100px;
-   height: 100px;
-}
-.newfish-btn {
-   background-color: var(--pond-color);
+   background-color: var(--palette-rose);
    color: var(--font-color-light);
    border-radius: 100%;
    width: 100px;
    height: 100px;
+}
+.newfishcontainer{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px;
+}
+.newfish-btn {
+   z-index: 300;
+   background-color: var(--palette-rose);
+   color: var(--font-color-light);
+   border-radius: 20px;
+   width: 200px;
+   height: 60px;
+}
+
+.submit-btn{
+   background-color: green;
+   color: white;
+   margin: 40px 0;
 }
 
 /* RIPPLE EFFECT */
@@ -194,7 +219,6 @@ body {
    width: 100%;
    align-items: center;
    justify-content: center;
-   height: 400px;
    margin-right: 200px;
 }
 .container{
