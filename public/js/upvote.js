@@ -10,12 +10,13 @@ upvoteBtn.onclick = async (event) => {
   });
 
   if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
-    console.log("Updoot successful");
+    //This is a catch so that upvoting/downvoting on the recent ponders aside does not redirect you to its specific page.
+    window.location.reload();
   } else {
     if (response.ok) {
       window.location.replace(`/specific/${ponderId}`)
     } else {
-      alert('Failed to post comment');
+      alert('Failed to upvote');
     };
   };
 }

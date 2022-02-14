@@ -8,10 +8,15 @@ downvoteBtn.onclick = async (event) => {
     // headers: { 'Content-Type': 'application/json' },
     // redirect: 'follow',
   });
-  
-  if (response.ok) {
-    window.location.replace(`/specific/${ponderId}`)
+
+  if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
+    //This is a catch so that upvoting/downvoting on the recent ponders aside does not redirect you to its specific page.
+    window.location.reload();
   } else {
-    alert('Failed to post comment');
+    if (response.ok) {
+      window.location.replace(`/specific/${ponderId}`)
+    } else {
+      alert('Failed to downvote');
+    };
   };
 }
