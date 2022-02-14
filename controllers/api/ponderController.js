@@ -109,6 +109,7 @@ router.put("/upvote/:id", (req, res) => {
       {upvote: prevUpVote + 1},
       {where: {id: req.params.id}}
     ).then(ponder => {
+      console.log(ponder.upvote);
       res.send(ponder)
     })
   })
@@ -121,6 +122,7 @@ router.put("/downvote/:id", (req, res) => {
       {downvote: prevDownVote + 1},
       {where: {id: req.params.id}}
     ).then(ponder => {
+      console.log(ponder.downvote);
       res.send(ponder)
     })
   })
