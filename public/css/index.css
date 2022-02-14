@@ -22,6 +22,8 @@ a {
 #ponder-logo {
     font-size: 60px;
     font-family: 'MuseoModerno', cursive;
+    color: var(--font-color-light);
+    margin: 0 30px 0 0;
 }
 
 #ponder-slogan {
@@ -47,7 +49,10 @@ body {
    
 }
 .navleft{
-   color: var(--font-color-light)
+   color: var(--font-color-light);
+   display: flex;
+   align-items: center;
+
 }
 .navright{
    display: flex;
@@ -113,7 +118,6 @@ body {
 .righthalf{
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
 }
 
 .recentponders{
@@ -193,7 +197,12 @@ body {
 }
 .cast-btn{
    background-color: green;
+
+   border-radius: 10px;
    color: var(--font-color-light);
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .fish-btn {
    z-index: 300;
@@ -216,6 +225,44 @@ body {
    border-radius: 20px;
    width: 200px;
    height: 60px;
+}
+/* image related css */
+.imagecontainer{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.frogimage{
+   width: 170px;
+   height: 203px;
+   position: fixed;
+   bottom: 50px;
+   left: 70px;
+}
+.grassimage{
+   width: 252px;
+   height: 300px;
+   position: fixed;
+   bottom: 50px;
+   right: 70px;
+}
+.fishingrod{
+   width: 22px;
+   height: 22px;
+   margin-left: 10px;
+}
+
+.fish{
+   width: 100px;
+   height: 100px;
+}
+.gofishheader{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   color: var(--font-color-light);
+   margin-top: 10px;
 }
 
 .submit-btn{
@@ -278,13 +325,13 @@ body {
 
 @keyframes ripple {
    0% {
-      width: 170px;
-      height: 170px;
+      width: 220px;
+      height: 220px;
       opacity: 1;
    }
    100% {
-      width: 300px;
-      height: 300px;
+      width: 340px;
+      height: 340px;
       opacity: 0;
    }
 }
@@ -310,6 +357,7 @@ body {
 }
 
 
+
 @media screen and (max-width: 1024px) {
 .nav{
 
@@ -333,3 +381,4 @@ justify-content: center;
 }
 
 }
+
