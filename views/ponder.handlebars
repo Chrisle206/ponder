@@ -1,12 +1,7 @@
 <figure class="main-card">
-
   <div class="card pondercard">
-    <div class="card-body">
-
     <div class="ponder-username">{{ponder.User.username}}:</div>
-    <div class="card-body">
       <p class="card-text ponder-text">{{ponder.body}}</p>
-    </div>
   <div>
     <div class="ponderbtns">
 
@@ -21,16 +16,21 @@
 </svg></button>
     </div>
 </div>
-    
-<h3>Comments:</h3>
+<div class="separator"></div>    
+<h3 class="comments-title">Comments:</h3>
     {{#each ponder.Comments}}
-      <p class="card-text comment-text">{{User.username}}: {{body}}</p>
+      <p class="card-text comment-text"><span class="commentusername">{{User.username}}:</span> {{body}}</p>
     
   {{/each}}
-</div>
 
-<div class="ripplecontainer">
-
+  <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="commentTextarea"></textarea>
+  <label for="commentTextarea">Comments</label>
+  <button type="button" class="btn submit-btn">Submit</button>
 </div>
-<a href = "/random"><button type="button" class="btn btn-lg newfish-btn">Fish</button></a>
+</div>
+ <div class="newfishcontainer">
+<a href = "/random"><button type="button" class="btn btn-lg newfish-btn">Fish again</button></a>
+        </div>
+
 </figure>
