@@ -82,7 +82,7 @@ body {
    margin: 0 auto 50px;
    width: 800px;
    font-size: 25px;
-   z-index: 300;
+   z-index: 1;
    justify-content: space-between;
    align-items: center;
    border-bottom: solid white 1px;
@@ -205,12 +205,6 @@ body {
    justify-content: center;
 }
 .fish-btn {
-   z-index: 300;
-   background-color: var(--palette-rose);
-   color: var(--font-color-light);
-   border-radius: 100%;
-   width: 100px;
-   height: 100px;
 }
 .newfishcontainer{
   display: flex;
@@ -219,7 +213,6 @@ body {
   margin: 20px;
 }
 .newfish-btn {
-   z-index: 300;
    background-color: var(--palette-rose);
    color: var(--font-color-light);
    border-radius: 20px;
@@ -235,17 +228,24 @@ body {
 
 .frogimage{
    width: 170px;
-   height: 203px;
    position: fixed;
    bottom: 50px;
    left: 70px;
 }
-.grassimage{
-   width: 252px;
-   height: 300px;
+.fishingimage{
+   width: 300px;
    position: fixed;
    bottom: 50px;
    right: 70px;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1);
+}
+.grassimage{
+   width: 300px;
+   position: fixed;
+   bottom: 50px;
+   right: 70px;
+   z-index: -1;
 }
 .fishingrod{
    width: 22px;
@@ -256,7 +256,9 @@ body {
 .fish{
    width: 100px;
    height: 100px;
+   z-index: 5;
 }
+
 .gofishheader{
    display: flex;
    justify-content: center;
@@ -296,7 +298,7 @@ body {
    box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px #ffffff;
    transition: 0.33s ease-in all;
    opacity: 0;
-   z-index: -1;
+   z-index: -10;
 }
 
  .ripleo::after {
