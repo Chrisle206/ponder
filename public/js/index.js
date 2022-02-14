@@ -4,6 +4,14 @@
 // TODO: find a way to check relative url instead of hardcoding it
 //TODO: Try catch blcok to prevent crash
 
+// const formText = document.querySelector('#floatingTextArea');
+prompts = ["Why should you pour cereal before milk?", "Start the conversation.", "You know you want to!", "Get it off your chest.", "...does a fish know it's wet?", "Float along in a stream of thoughts...", "See what the world thinks.", "Just say it!", "Cast your thoughts into the Pond!"]
+
+function init () {
+  const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)]; 
+  document.querySelector('#floatingTextarea').placeholder = randomPrompt;
+}
+
 if(window.location.pathname=="/") {
         const ponderInput = document.querySelector('.ponder-input');
         const categoryInput = document.querySelector('.category-input');
@@ -22,8 +30,7 @@ if(window.location.pathname=="/") {
         console.log(`Ponder text field value: ${ponderText}`);
         console.log(`Chosen category: ${categoryPick}`);
         console.log(`Checkbox is checked: ${anonymousCheck}`);
-        // TODO: assign 1 to UserId if anonymousCheck is true
-        // if false assign to req.session.user.id
+
       if (anonymousCheck) {
         const response = await fetch('/api/ponder/anonymous', {
             method: 'POST',
@@ -65,3 +72,5 @@ if(window.location.pathname=="/") {
 
 
 }
+
+init();
