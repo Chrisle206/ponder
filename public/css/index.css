@@ -63,14 +63,13 @@ body {
 }
 
 .profile{
-   color: white;
-   font-size: 24px;
+   color: var(--font-color-light);
    display: flex;
    align-items: center;
 }
 
 .loggedusername{
-   margin-left: 10px;
+   color: var(--font-color-light);
 }
 
 .main-card {
@@ -88,7 +87,6 @@ body {
    margin: 0 auto 50px;
    width: 800px;
    font-size: 25px;
-   z-index: 300;
    justify-content: space-between;
    align-items: center;
    border-bottom: solid white 1px;
@@ -116,6 +114,8 @@ body {
    padding: 15px;
    background-color: white;
    align-self: center;
+   margin-top: 100px;
+   z-index: 1;
 }
 
 .input-header{
@@ -254,12 +254,7 @@ body {
 }
 
 .fish-btn {
-   z-index: 300;
-   background-color: var(--palette-rose);
-   color: var(--font-color-light);
-   border-radius: 100%;
-   width: 100px;
-   height: 100px;
+   z-index: 1;
 }
 
 .newfishcontainer{
@@ -270,7 +265,6 @@ body {
 }
 
 .newfish-btn {
-   z-index: 300;
    background-color: var(--palette-rose);
    color: var(--font-color-light);
    border-radius: 20px;
@@ -287,27 +281,49 @@ body {
 
 .frogimage{
    width: 170px;
-   height: 203px;
+   position: fixed;
+   bottom: 10px;
+   left: 70px;
+   z-index: 1;
+}
+.fishingimage{
+   width: 300px;
    position: fixed;
    bottom: 50px;
-   left: 70px;
+   right: 80px;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1) rotate(-20deg);
+   z-index: 1;
 }
 .grassimage{
-   width: 252px;
-   height: 300px;
+   width: 300px;
    position: fixed;
-   bottom: 50px;
-   right: 70px;
+   bottom: 0px;
+   right: 5px;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1);
+
+}
+.grassimage2{
+   width: 300px;
+   position: fixed;
+   bottom: 0px;
+   left: 5px;
+
 }
 .fishingrod{
    width: 22px;
    height: 22px;
    margin-left: 10px;
+
 }
 
-.fish{
+.fishimg{
    width: 100px;
    height: 100px;
+}
+.fish{
+z-index: 1;
 }
 .gofishheader{
    display: flex;
@@ -348,7 +364,6 @@ body {
    box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px #ffffff;
    transition: 0.33s ease-in all;
    opacity: 0;
-   z-index: -1;
 }
 
  .ripleo::after {
@@ -407,7 +422,6 @@ body {
 .ripleo:nth-child(5) {
    animation-delay: 2500ms;
 }
-
 
 
 @media screen and (max-width: 1024px) {
