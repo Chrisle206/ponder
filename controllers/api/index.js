@@ -10,4 +10,7 @@ router.use("/users",userRoutes)
 const commentRoutes = require("./commentController.js")
 router.use("/comments",commentRoutes)
 
+const categoryRoutes = require("./categoryController.js")
+router.use("/category",categoryRoutes)
+
 module.exports = router;

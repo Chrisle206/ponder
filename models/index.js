@@ -19,7 +19,6 @@ Comment.belongsTo(Ponder);
 
 //A Ponder will belong to a category, referencing that category's category_id. In the future, we may want to change this to a 'hasMany' relationship so we can attach multiple categories. This depends on if we implement tags.
 Ponder.belongsTo(Category);
-
 Category.hasMany(Ponder);
 
 module.exports={

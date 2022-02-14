@@ -38,6 +38,7 @@ body {
     background: var(--pond-color);
     color: var(--font-color-dark);
 }
+
 .nav{
    display: flex;
    justify-content: space-between;
@@ -48,24 +49,29 @@ body {
    padding: 0 30px;
    
 }
+
 .navleft{
    color: var(--font-color-light);
    display: flex;
    align-items: center;
 
 }
+
 .navright{
    display: flex;
    align-items: center;
 }
+
 .profile{
    color: var(--font-color-light);
    display: flex;
    align-items: center;
 }
+
 .loggedusername{
    color: var(--font-color-light);
 }
+
 .main-card {
    display:flex;
    flex-direction: column;
@@ -86,6 +92,7 @@ body {
    border-bottom: solid white 1px;
    padding-bottom: 50px;
 }
+
 .formcontainer{
    width: 50%;
    height: auto;
@@ -96,10 +103,26 @@ body {
    padding: 30px;
    background-color: white;
 }
+
+.fishcontainer{
+   width: 250px;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 30px;
+   padding: 15px;
+   background-color: white;
+   align-self: center;
+   margin-top: 100px;
+   z-index: 1;
+}
+
 .input-header{
    margin-bottom: 30px;
    text-align: center;
 }
+
 .ponder-input{
    font-size: 18px;
    width: 100%;
@@ -109,10 +132,27 @@ body {
    border-radius: 10px;
    padding: 16px;
 }
+
+.form-check-input {
+   width:20px;
+   height:20px;
+}
+
 .anonymous{
    font-size: 18px;
    color: var(--font-color-dark);
 }
+
+#category-check {
+   margin-top:0px;
+   margin-bottom: 5px;
+}
+.category{
+   font-size: 18px;
+   color: var(--font-color-dark);
+   align-self: center;
+}
+
 .righthalf{
    display: flex;
    flex-direction: column;
@@ -123,23 +163,28 @@ body {
    flex-direction: column;
    align-items: center;
 }
+
 .recents-title{
    width: 800px;
    font-size: 24px;
    margin: 40px;
 
 }
+
 #logoutbtn{
    margin-left: 20px;
 }
+
 .signupbtn{
    background-color: var(--bg-color);
    color: black;
    margin-left: 10px;
 }
+
 .pondercardheader{
    background-color: var(--pond-color-dark);
 }
+
 .pondercard{
    width: 800px;
    background-color: white;
@@ -148,6 +193,7 @@ body {
    border-radius: 30px;
    padding: 50px;
 }
+
 .separator{
    width: 100%;
    background-color: var(--pond-color);
@@ -159,12 +205,15 @@ body {
    font-size: 20px;
 
 }
+
 .comment-text{
    margin: 30px 0;
 }
+
 .commentusername{
    color: var(--palette-rose)
 }
+
 .ponder-username {
    font-size: 24px;
    color: var(--pond-color-blue);
@@ -176,6 +225,7 @@ body {
    font-size: 20px;
    margin: 40px 0 0 0;
 }
+
 .ponderbtns{
    margin: 10px 20px;
    display: flex;
@@ -202,15 +252,18 @@ body {
    align-items: center;
    justify-content: center;
 }
+
 .fish-btn {
    z-index: 1;
 }
+
 .newfishcontainer{
   display: flex;
   width: 100%;
   justify-content: center;
   margin: 20px;
 }
+
 .newfish-btn {
    background-color: var(--palette-rose);
    color: var(--font-color-light);
@@ -218,6 +271,7 @@ body {
    width: 200px;
    height: 60px;
 }
+
 /* image related css */
 .imagecontainer{
    display: flex;
@@ -264,11 +318,13 @@ body {
 
 }
 
-.fish{
+.fishimg{
    width: 100px;
    height: 100px;
 }
-
+.fish{
+z-index: 1;
+}
 .gofishheader{
    display: flex;
    justify-content: center;
