@@ -12,7 +12,8 @@ const upvoteBtnClick = (upvoteBtn) => {
       // redirect: 'follow',
     });
 
-    if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
+    let relativeUrl = window.location.pathname;
+    if(relativeUrl == "/" || relativeUrl == "/active" || relativeUrl.includes("/specific/") ) {
       //This is a catch so that upvoting/downvoting on the recent ponders aside does not redirect you to its specific page.
       window.location.reload();
     } else {
