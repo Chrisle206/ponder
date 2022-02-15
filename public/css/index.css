@@ -89,6 +89,17 @@ body {
    border-bottom: solid white 1px;
    padding-bottom: 50px;
 }
+.the-pondcontainer {
+   display: flex;
+   flex-direction: column;
+   margin: 50px auto 50px;
+   width: 800px;
+   font-size: 25px;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: solid white 1px;
+   padding-bottom: 50px;
+}
 
 .formcontainer{
    width: 50%;
@@ -189,7 +200,7 @@ body {
 .pondercard{
    width: 800px;
    background-color: white;
-   margin: 14px;
+   margin: 14px auto;
    border: none;
    border-radius: 30px;
    padding: 50px;
@@ -281,6 +292,7 @@ body {
 }
 
 .frogimage{
+   display: block;
    width: 170px;
    position: fixed;
    bottom: 10px;
@@ -288,6 +300,7 @@ body {
    z-index: 1;
 }
 .fishingimage{
+   display: block;
    width: 300px;
    position: fixed;
    bottom: 50px;
@@ -297,6 +310,7 @@ body {
    z-index: 1;
 }
 .grassimage{
+   display: block;
    width: 300px;
    position: fixed;
    bottom: 0px;
@@ -306,6 +320,7 @@ body {
 
 }
 .grassimage2{
+   display: block;
    width: 300px;
    position: fixed;
    bottom: 0px;
@@ -320,12 +335,37 @@ body {
 }
 
 .fishimg{
+   display: block;
    width: 100px;
    height: 100px;
 }
+.teamcontainer{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   max-width: 800px;
+   justify-content: space-between;
+   margin: 0 auto;
 
+}
+
+.teamcard{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: white;
+   margin: 14px 0px;
+   border: none;
+   border-radius: 30px;
+   padding: 30px;
+   text-align: center;
+   width: calc(50% - 30px);
+}
 .teampic{
+   width: 200px;
    border-radius: 50%;
+   margin-bottom: 20px;
 }
 
 .fish{
@@ -474,6 +514,9 @@ justify-content: center;
 width: 100%;
 
 }
+.the-pondcontainer {
+   width: 90%;
+}
 .formcontainer{
    width: 90%;
 }
@@ -491,8 +534,16 @@ width: 100%;
    width: 100%;
    text-align: center;
 }
+.teamcard{
+   width: 90%;
+}
+.teamcontainer{
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
 
 }
+
 
 .frogimage{
    display: none;
@@ -505,4 +556,6 @@ width: 100%;
 }
 .grassimage2{
    display: none;
+}
+
 }
