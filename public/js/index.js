@@ -73,14 +73,15 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
     //   })
     // }
 
-    const categoryCheck = document.querySelector("#category-check");
-const categorySelect = document.querySelector("#categoryselect")
+
+}
 
 
-  if (categoryCheck.checked==true){
-    categorySelect.style.display = "block";
-    console.log("checked")
+function profiletoggle() {
+  var logins = document.getElementById("loginsmobile");
+  if (logins.style.display === "flex") {
+    logins.style.display = "none";
+  } else {
+    logins.style.display = "flex";
   }
-
-
 }
