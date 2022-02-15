@@ -11,32 +11,6 @@ let sesh;
 //To use these routes, type localhost:3000/api/ponder as your base URL.
 var filter = new Filter();
 filter.addWords(...badWordsArray);
-//GET route for viewing a specific ponder; allows for user to refer to their old Ponders.
-//TODO: This route now exists in the htmlController file, therefore there is no need for it here.
-// router.get("/specific/:id", async (req, res) => {
-//     try {
-//         const postData = await Ponder.findByPk(req.params.id, {
-//           include: [
-//             User,
-//             {
-//               model: Comment,
-//               include: [User],
-//             },
-//           ],
-//         });
-    
-//         if (postData) {
-//           const ponder = postData.get({ plain: true });
-    
-//           res.render('ponder', { ponder });
-//           // res.json(post)
-//         } else {
-//           res.status(404).end();
-//         }
-//       } catch (err) {
-//         res.status(500).json(err);
-//       }
-// });
 
 //Shows three most recent ponders.
 router.get("/", (req, res) => {

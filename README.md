@@ -45,13 +45,13 @@ Here are some screenshots showcasing how our application looks on the live site:
 
 Our talented four-member team made this application possible! Refer to their GitHub profiles below:
 
-Chris: [https://github.com/Chrisle206](https://github.com/Chrisle206)
+Chris (Sequelize, JS, Git Admin): [https://github.com/Chrisle206](https://github.com/Chrisle206)
 
-Dat: [https://github.com/velkyam](https://github.com/velkyam)
+Dat (CSS & Design): [https://github.com/velkyam](https://github.com/velkyam)
 
-Shawn: [https://github.com/shnala](https://github.com/shnala)
+Shawn (Server, JS, Project Manager): [https://github.com/shnala](https://github.com/shnala)
 
-Ronnel: [https://github.com/rabrigo](https://github.com/rabrigo)
+Ronnel (Front-End, Back-End, JS): [https://github.com/rabrigo](https://github.com/rabrigo)
 
 Node Modules:
 
@@ -88,4 +88,6 @@ SOFTWARE.
 
 ## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+Use our site!
+
+Wanna join the team? Contact us at [shawnanalla@gmail.com]
