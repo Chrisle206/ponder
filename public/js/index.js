@@ -11,11 +11,13 @@ prompts = ["Why should you pour cereal before milk?", "Start the conversation.",
 if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
         const ponderInput = document.querySelector('.ponder-input');
         const categoryInput = document.querySelector('.category-input');
-        const anonymousInput = document.querySelector('#anonymous-check');
+        const anonymousInput = document.getElementById('anonymous-check');
         const castBtn = document.querySelector('.cast-btn');
-        const goFishingBtn = document.querySelector('.go-fishing-btn');
-        const AnonymousProfileId = 1;
+        const fishBtn = document.querySelector('.fish-btn');
+        const categoryCheck = document.getElementById('category-check');
+        const fishMenu = document.getElementById('fish-menu')
         const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+        const AnonymousProfileId = 1;
         //Random prompt in form text field on page load. 
         document.querySelector('#floatingTextarea').placeholder = randomPrompt;
         
@@ -47,7 +49,7 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
             })
             const postId = await response.json()
             console.log(postId.id)
-            location.replace(`/specific/${postId.id}`)
+            location.assign(`/specific/${postId.id}`)
           } else {
           const response = await fetch('/api/ponder/', {
             method: 'POST',
@@ -60,18 +62,22 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
           })
           const postId = await response.json()
           console.log(postId.id)
-          location.replace(`/specific/${postId.id}`)
+          location.assign(`/specific/${postId.id}`)
         }
       }
     };
 
-//TODO: Logic for gofishing click may need to be reinstated if we are to allow the user to go fishing by category. Currently, the user can only fish randomly because there is an anchor tag around the button which redirects the user directly towards   /  random.
-    // goFishingBtn.onclick = () => {
-    //   await fetch('/api/ponder/random', {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    //   })
-    // }
-
-
+//TODO: Logic for gofishing click may need to be reinstated if we are to allow the user to go fish by category. Currently, the user can only fish randomly because there is an anchor tag around the button which redirects the user directly towards   /  random.
+    fishBtn.onclick = (event) => {
+      event.preventDefault();
+      let fishByCat =  categoryCheck.checked;
+      console.log("fish by category is checked: " + fishByCat);
+      let theId = fishMenu.value;
+      console.log("the category id selected: " + theId);
+      if (!fishByCat) {
+        location.assign(`/random`)
+      } else {
+        location.assign(`/api/category/${theId}`)
+      }
+    }
 }
