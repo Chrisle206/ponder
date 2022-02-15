@@ -12,6 +12,25 @@ let sesh;
 var filter = new Filter();
 filter.addWords(...badWordsArray);
 
+router.get("/Ponders", (req, res) => {
+  Ponder.findAll().then(ponders => {
+    let all = ponders.map(x => x);
+    let array = [];
+    for(let i = 0; i >= all.length; i++) {
+      let p1 = all[i];
+    for(let j = 1; j >= all.length; j++) {
+      let p2 = all[j];
+      if(p1.upvote < p2.upvote) {
+        p1 = p2;
+      } 
+      }
+      array.push(p1);
+      all.splice(i, 1);
+    }
+    res.render('ponders', array);
+  })
+})
+
 //Shows three most recent ponders.
 // router.get("/", (req, res) => {
 //     Ponder.findAll({include: [User, {model: Comment, include: [User]}]})

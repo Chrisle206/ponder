@@ -1,4 +1,5 @@
 const loginbtn = document.querySelector('#loginbtn');
+const loginFail = document.querySelector('.login-fail');
 
 const loginFormHandler = async function(event) {
     event.preventDefault();
@@ -18,7 +19,8 @@ const loginFormHandler = async function(event) {
     if (response.ok) {
       document.location.replace('/active');
     } else {
-      alert('Incorrect username/password.');
+      loginFail.setAttribute("style", "color: red;");
+      loginFail.textContent = "Incorrect Email and/or Password";
     }
   };
   
