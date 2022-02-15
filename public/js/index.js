@@ -81,3 +81,13 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
       }
     }
 }
+
+
+function profiletoggle() {
+  var logins = document.getElementById("loginsmobile");
+  if (logins.style.display === "flex") {
+    logins.style.display = "none";
+  } else {
+    logins.style.display = "flex";
+  }
+}
