@@ -2,7 +2,7 @@
 
 const commentbtn = document.querySelector('#commentbtn');
 
-if (window.location.pathname=="/" || window.location.pathname=="/active" || window.location.pathname.contains("user")) {
+if (window.location.pathname=="/" || window.location.pathname=="/active" || window.location.pathname.includes("user")) {
     console.log("You are on the home page")
 } else {
 const commentSubmit = async function(event) {
