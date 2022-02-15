@@ -80,59 +80,103 @@ router.post("/anonymous", async (req,res) => {
 router.put("/upvote/:id", (req, res) => {
   const ponderId = req.params.id;
   sesh = req.session;
-  // if there is no array for all votes create a new array
+  // if there is no array for upvotes create a new array
   if (!sesh.allUpvotes) {sesh.allUpvotes = []};
-  if (!sesh.allUpvotes.includes(ponderId)) {
-    Ponder.findByPk(req.params.id).then(ponder => {
+  // if ponder hasn't already been downvoted
+  if (!sesh.allDownvotes || !sesh.allDownvotes.includes(ponderId)) {
+    // if ponder hasn't already been upvoted
+    if (!sesh.allUpvotes.includes(ponderId)) {
+      Ponder.findByPk(req.params.id).then(ponder => {
+          const prevUpVote = ponder.upvote;
+          Ponder.update(
+            {upvote: prevUpVote + 1},
+            {where: {id: ponderId}}
+          ).then(ponder => {
+            console.log("sesh.allUpvotes before: " + sesh.allUpvotes);
+            sesh.allUpvotes.push(ponderId);
+            console.log("sesh.allUpvotes after: " + sesh.allUpvotes);
+            res.send(ponder)
+          })
+        })
+        // but if there is already an upvote
+    } else if (sesh.allUpvotes.includes(ponderId)) {
+      Ponder.findByPk(req.params.id).then(ponder => {
         const prevUpVote = ponder.upvote;
         Ponder.update(
-          {upvote: prevUpVote + 1},
+          {upvote: prevUpVote - 1},
           {where: {id: ponderId}}
         ).then(ponder => {
-          sesh.allUpvotes.push(ponderId);
+          console.log("sesh.allUpvotes before: " + sesh.allUpvotes);
+          // then filter out that ponder from array
+          // filters array for elements that are not the ponder
+          sesh.allUpvotes = sesh.allUpvotes.filter(ponder => ponder != ponderId);
+          console.log("sesh.allUpvotes after: " + sesh.allUpvotes);
           res.send(ponder)
         })
       })
-  } else {
-    res.status(200).json();
+    }
   }
 })
 
 router.put("/downvote/:id", (req, res) => {
   const ponderId = req.params.id;
   sesh = req.session;
-  // if there is no array for all votes create a new array
+  // if there is no array for downvotes create a new array
   if (!sesh.allDownvotes) {sesh.allDownvotes = []};
-  if (!sesh.allDownvotes.includes(ponderId)) {
-    Ponder.findByPk(req.params.id).then(ponder => {
+  // if ponder hasn't already been upvoted
+  if (!sesh.allUpvotes || !sesh.allUpvotes.includes(ponderId)) {
+    // if ponder hasn't already been downvoted
+    if (!sesh.allDownvotes.includes(ponderId)) {
+      Ponder.findByPk(req.params.id).then(ponder => {
+          const prevDownVote = ponder.downvote;
+          Ponder.update(
+            {downvote: prevDownVote + 1},
+            {where: {id: ponderId}}
+          ).then(ponder => {
+            console.log("sesh.allDownvotes before: " + sesh.allDownvotes);
+            sesh.allDownvotes.push(ponderId);
+            console.log("sesh.allDownvotes after: " + sesh.allDownvotes);
+            res.send(ponder)
+          })
+        })
+        // but if there is already a downvote
+    } else if (sesh.allDownvotes.includes(ponderId)) {
+      Ponder.findByPk(req.params.id).then(ponder => {
         const prevDownVote = ponder.downvote;
         Ponder.update(
-          {downvote: prevDownVote + 1},
+          {downvote: prevDownVote - 1},
           {where: {id: ponderId}}
         ).then(ponder => {
-          sesh.allDownvotes.push(ponderId);
-          res.send(ponder)
+          console.log("sesh.allDownvotes before: " + sesh.allDownvotes);
+          // then filter out that ponder from array
+          // filters array for elements that are not the ponder
+          sesh.allDownvotes = sesh.allDownvotes.filter(ponder => ponder != ponderId);
+          console.log("sesh.allDownvotes after: " + sesh.allDownvotes);
+          res.send(ponder);
         })
       })
-  } else {
-    res.status(200).json();
+    }
   }
 })
 
-// old downvote code: 
+// const ponderId = req.params.id;
 // sesh = req.session;
+// // if there is no array for all votes create a new array
 // if (!sesh.allDownvotes) {sesh.allDownvotes = []};
-// Ponder.findByPk(req.params.id).then(ponder => {
-//   const prevDownVote = ponder.downvote;
-//   Ponder.update(
-//     {downvote: prevDownVote + 1},
-//     {where: {id: req.params.id}}
-//   ).then(ponder => {
-//     // console.log("this is the ponder id: " + req.params.id);
-//     sesh.allDownvotes.push(req.params.id);
-//     res.send(ponder)
-//   })
-// })
+// if (!sesh.allDownvotes.includes(ponderId)) {
+//   Ponder.findByPk(req.params.id).then(ponder => {
+//       const prevDownVote = ponder.downvote;
+//       Ponder.update(
+//         {downvote: prevDownVote + 1},
+//         {where: {id: ponderId}}
+//       ).then(ponder => {
+//         sesh.allDownvotes.push(ponderId);
+//         res.send(ponder)
+//       })
+//     })
+// } else {
+//   res.status(200).json();
+// }
 
 //Route for deleting a Ponder.
 router.delete("/:id", (req, res) => {
