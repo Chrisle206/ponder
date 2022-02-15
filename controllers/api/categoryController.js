@@ -12,7 +12,7 @@ const { User, Ponder, Comment, Category } = require("../../models");
 //         res.json(category);
 //     })
 // });
-
+//TODO: Make sure you make a conditional render for our response whereby the 'loggedin' layout is used if there is a current session, and 'main' layout is used if there is no current session, refer to the other routes
 router.get("/:id", (req, res) => {
     Category.findOne(
         {where: {id:req.params.id},

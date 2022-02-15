@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
+var Filter = require('bad-words');
+const badWordsArray = require('../../lib/seeds/profanities');
 const { User, Ponder, Comment } = require("../../models");
 const AnonymousProfileId = 1;
 
+var filter = new Filter();
+filter.addWords(...badWordsArray);
 
 //Route for getting all comments
 router.get("/", (req, res) => {
@@ -27,7 +31,7 @@ router.post("/", (req, res) => {
         });
     } else {
         Comment.create({
-            body: req.body.body,
+            body: filter.clean(req.body.body),
             UserId: AnonymousProfileId,
             PonderId: req.body.ponder_id
         }).then(newComment => {

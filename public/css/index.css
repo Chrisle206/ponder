@@ -326,6 +326,11 @@ body {
    width: 100px;
    height: 100px;
 }
+
+.teampic{
+   border-radius: 50%;
+}
+
 .fish{
 z-index: 1;
 
