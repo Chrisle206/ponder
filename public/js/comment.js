@@ -11,10 +11,16 @@ const commentSubmit = async function(event) {
     const downvoteBtn = document.querySelector('.downvote-btn')
     const commentEl = document.querySelector('#commentTextarea');
     const ponderId = downvoteBtn.id;
+    const commentText = commentEl.value;
+    
+    if (!commentText) {
+      alert('Empty input field');
+      return;
+    }
     const response = await fetch('/api/comments', {
       method: 'POST',
       body: JSON.stringify({
-        body: commentEl.value,
+        body: commentText,
         ponder_id: ponderId
       }),
       headers: { 'Content-Type': 'application/json' },
