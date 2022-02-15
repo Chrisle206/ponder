@@ -32,16 +32,16 @@ router.get("/Ponders", (req, res) => {
 })
 
 //Shows three most recent ponders.
-router.get("/", (req, res) => {
-    Ponder.findAll({include: [User, {model: Comment, include: [User]}]})
-    .then(ponders => {
-        let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
-        const ponder = recent.map((post) => post.get({ plain: true }));
-        console.log(ponder);
-        // res.json(ponder);
-        res.render('recent', { ponder });
-    });
-});
+// router.get("/", (req, res) => {
+//     Ponder.findAll({include: [User, {model: Comment, include: [User]}]})
+//     .then(ponders => {
+//         let recent = [ponders[ponders.length-1],ponders[ponders.length-2],ponders[ponders.length-3]];
+//         const ponder = recent.map((post) => post.get({ plain: true }));
+//         console.log(ponder);
+//         // res.json(ponder);
+//         res.render('recent', { ponder });
+//     });
+// });
 
 //POST route for posts associated with an id
 router.post("/", async (req, res) => {
