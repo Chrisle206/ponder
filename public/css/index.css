@@ -61,23 +61,51 @@ body {
 }
 
 .profile{
-   color: var(--font-color-light);
+   color: var(--font-color-dark);
    display: flex;
    align-items: center;
+   margin: 0 auto;
 }
 .profilemenu{
-   display: none;
+   display: flex;
+   border: solid 3px white;
+   border-radius: 100%;
+   padding: 5px;
+   justify-content: center;
 }
 .loggedusername{
-   color: var(--font-color-light);
+   color: var(--font-color-dark);
 }
-
+.aboutbtn{
+   color: black;
+   display: block;
+   text-align: center;
+}
 #logins{
    display: block;
 }
+.menucontainer{
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
 #loginsmobile{
    display: none;
+   background-color: white;
+   height: auto;
+   justify-content: center;
+   flex-direction: column;
+   margin: 0 30px;
+   padding: 20px 0;
+   align-content: center;
+   width: 20%;
+
 }
+.menubtn{
+   width: auto;
+margin: 10px 0;
+}
+
 
 .the-pond {
    display: flex;
@@ -190,7 +218,6 @@ body {
 .signupbtn{
    background-color: var(--bg-color);
    color: black;
-   margin-left: 10px;
 }
 
 .pondercardheader{
@@ -501,10 +528,8 @@ margin: 0 auto;
    display:none;
 }
 #loginsmobile{
-   width: 100%;
-   background-color: white;
-   height: auto;
-   justify-content: center;
+margin: 0 auto;
+width: 100%;
 }
 
 
