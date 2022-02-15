@@ -38,12 +38,11 @@
     </div>
     <div class="righthalf">
       <div class="ripplecontainer">
-        <a href="/random" class="fish"><button type="button" class="btn btn-lg">
+        <a class="fish"><button type="button" class="btn btn-lg">
             <img class="fishimg" src="/images/fish.png" alt="_fish" />
             <h2 class="gofishheader">Go fishing!</h2>
           </button></a>
-        {{!-- <a href="/random"><button type="button" class="btn btn-lg fish-btn">Go Fish!
-          </button></a> --}}
+          <button type="button" class="btn btn-lg fish-btn">Go Fish!</button>
         <button class="ripleo"></button>
         <button class="ripleo"></button>
         <button class="ripleo"></button>
@@ -55,6 +54,19 @@
       <input class="form-check-input" type="checkbox" value="" id="category-check">
         Fish by Category?
       </label>
+        <select id="fish-menu" class="form-select category-input">
+        <option selected value="1">What category?</option>
+        <option value="2">No Category</option>
+        <option value="3">Coding</option>
+        <option value="4">Gaming</option>
+        <option value="5">Technology</option>
+        <option value="6">Food</option>
+        <option value="7">Advice</option>
+        <option value="8">Conversation</option>
+        <option value="9">Philosophy</option>
+        <option value="10">Art</option>
+        <option value="11">Romance</option>
+      </select>
       </div>
     </div>
   </div>

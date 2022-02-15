@@ -4,14 +4,14 @@ const { User, Ponder, Comment, Category } = require("../../models");
 
 
 
-//Shows all categories and their respective ponders
-// router.get("/", (req, res) => {
-//     Category.findAll({
-//         include: [Ponder]
-//     }).then(category=> {
-//         res.json(category);
-//     })
-// });
+// Shows all categories and their respective ponders
+router.get("/", (req, res) => {
+    Category.findAll({
+        include: [Ponder]
+    }).then(category=> {
+        res.json(category);
+    })
+});
 
 router.get("/:id", (req, res) => {
     Category.findOne(
