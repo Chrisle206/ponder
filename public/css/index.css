@@ -23,7 +23,6 @@ a {
     font-size: 60px;
     font-family: 'MuseoModerno', cursive;
     color: var(--font-color-light);
-    margin: 0 30px 0 0;
 }
 
 #ponder-slogan {
@@ -31,7 +30,7 @@ a {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin: 50px auto;
 }
 
 body {
@@ -54,7 +53,6 @@ body {
    color: var(--font-color-light);
    display: flex;
    align-items: center;
-
 }
 
 .navright{
@@ -67,19 +65,18 @@ body {
    display: flex;
    align-items: center;
 }
-
+.profilemenu{
+   display: none;
+}
 .loggedusername{
    color: var(--font-color-light);
 }
 
-.main-card {
-   display:flex;
-   flex-direction: column;
-   align-items: center;
-   background-color: var(--pond-color);
-   height: 100vh;
-   width: 100%;
-   padding: 100px 0;
+#logins{
+   display: block;
+}
+#loginsmobile{
+   display: none;
 }
 
 .the-pond {
@@ -115,9 +112,12 @@ body {
    background-color: white;
    align-self: center;
    margin-top: 100px;
-   z-index: 1;
 }
-
+.category-select{
+   width: 250px;
+   z-index: 1;
+   display: none;
+}
 .input-header{
    margin-bottom: 30px;
    text-align: center;
@@ -156,6 +156,7 @@ body {
 .righthalf{
    display: flex;
    flex-direction: column;
+   align-items: center;
 }
 
 .recentponders{
@@ -167,7 +168,7 @@ body {
 .recents-title{
    width: 800px;
    font-size: 24px;
-   margin: 40px;
+   margin: 40px auto;
 
 }
 
@@ -329,6 +330,7 @@ body {
 
 .fish{
 z-index: 1;
+
 }
 .gofishheader{
    display: flex;
@@ -350,7 +352,7 @@ z-index: 1;
    width: 100%;
    align-items: center;
    justify-content: center;
-   margin-right: 200px;
+
 }
 .container{
    display: flex;
@@ -402,8 +404,8 @@ z-index: 1;
       opacity: 1;
    }
    100% {
-      width: 340px;
-      height: 340px;
+      width: 300px;
+      height: 300px;
       opacity: 0;
    }
 }
@@ -431,20 +433,59 @@ z-index: 1;
 
 @media screen and (max-width: 1024px) {
 .nav{
+height: auto;
+margin: 0;
 
 }
+.navleft{
+margin: 0 auto;
+
+}
+#ponder-logo {
+}
+
+#ponder-slogan {
+
+   font-size: 24px;
+   margin: 50px 30px;
+}
+.profilemenu{
+   display:block;
+   position: absolute;
+   right: 30px;
+   top: 20px;
+   color: white;
+}
+
+#logins{
+   display:none;
+}
+#loginsmobile{
+   width: 100%;
+   background-color: white;
+   height: auto;
+   justify-content: center;
+}
+
+
 .the-pond{
 flex-direction: column;
 justify-content: center;
+width: 100%;
 
 }
-.pondercard{
+.formcontainer{
+   width: 90%;
+}
+.fishcontainer{
    width: 100%;
-   min-width: 400px;
-   background-color: white;
-   margin: 14px 0px;
-   border-radius: 30px;
-   padding: 50px;
+}
+.righthalf{
+   margin-top: 100px;
+}
+.pondercard{
+   width: 90%;
+   min-width: none;
 }
 .recents-title{
    width: 100%;
@@ -453,3 +494,15 @@ justify-content: center;
 
 }
 
+.frogimage{
+   display: none;
+}
+.fishingimage{
+   display: none;
+}
+.grassimage{
+   display: none;
+}
+.grassimage2{
+   display: none;
+}

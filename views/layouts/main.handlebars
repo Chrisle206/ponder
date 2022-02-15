@@ -23,91 +23,9 @@
     <title>Ponder</title>
 </head>
 <body>
-    <nav class="nav">
-       
-            <div class="navleft">
-                <a href="/"><h1 id="ponder-logo">Ponder</h1></a>
-                
-            </div>
-                 <div class="navright">
-                <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Login
-                    </button>
-                    <!-- Modal -->
-                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="loginModalLabel">Login!</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div>
-                                    <form id="loginForm">
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" type="submit" id="loginbtn">Login</button>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            {{!-- end modal --}}
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn signupbtn" data-bs-toggle="modal" data-bs-target="#signupModal">
-                    Signup
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="signupModalLabel">Sign Up!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div>
-                                <form id="signupForm">
-                                    <div class="mb-3">
-                                        <label for="signupInputUsername1" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="signupInputUsername1" aria-describedby="usernameHelp" placeholder="Username">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="signupInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="signupInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="signupInputPassword1" placeholder="Password">
-                                    </div>
-                                    </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" type="submit" id="signupbtn">Signup</button>
-                        </div>
-                        </div>
-                    </div>
-                   </div> 
-                {{!-- end modal --}}
-       
-       </div> 
-
-      
-    </nav>
+        {{>nav}}
+        {{>mobilelogin}}
         {{{body}}}
         {{>footer}}
         <img class="frogimage"src="/images/frog.png" alt="frogg" />
