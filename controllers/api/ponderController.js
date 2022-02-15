@@ -12,22 +12,41 @@ let sesh;
 var filter = new Filter();
 filter.addWords(...badWordsArray);
 
+//Sorts ponders from greatest to least and renders to the page
 router.get("/Ponders", (req, res) => {
-  Ponder.findAll().then(ponders => {
-    let all = ponders.map(x => x);
-    let array = [];
-    for(let i = 0; i >= all.length; i++) {
-      let p1 = all[i];
-    for(let j = 1; j >= all.length; j++) {
-      let p2 = all[j];
-      if(p1.upvote < p2.upvote) {
-        p1 = p2;
-      } 
+  Ponder.findAll({
+    include: [User]
+  }).then(ponders => {
+
+    let all = ponders.map(x => x.get({plain:true}));
+    console.log(all);
+    // let array = [];
+    // for(let i = 0; i < all.length; i++) {
+    //   let p1 = all[i];
+    // for(let j = 1; j < all.length; j++) {
+    //   let p2 = all[j];
+
+    //   if(p1.upvote < p2.upvote) {
+    //     p1 = p2;
+    //   } 
+    //   }
+    //   // console.log(p1);
+    //   array.push(p1);
+    //   all.splice(all.indexOf(p1), 1);
+    all.sort((a, b) => (a.upvote > b.upvote) ? -1 : ((b.upvote > a.upvote) ? 1 : 0));
+    console.log(all);
+    // }
+    // console.log(array);
+    if (req.session.user) {
+      const user = req.session.user;
+      res.render('allponders', {
+        layout: 'loggedin',
+        all, user });
+      } else {
+      res.render('allponders', {
+        layout: 'main',
+        all });
       }
-      array.push(p1);
-      all.splice(i, 1);
-    }
-    res.render('ponders', array);
   })
 })
 
