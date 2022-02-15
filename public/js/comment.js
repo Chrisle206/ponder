@@ -1,6 +1,8 @@
+// const { User } = require("../../models");
+
 const commentbtn = document.querySelector('#commentbtn');
 
-if (window.location.pathname=="/" || window.location.pathname=="/active") {
+if (window.location.pathname=="/" || window.location.pathname=="/active" || window.location.pathname.contains("user")) {
     console.log("You are on the home page")
 } else {
 const commentSubmit = async function(event) {

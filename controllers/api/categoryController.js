@@ -15,13 +15,40 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
     Category.findOne(
-        {where: {id:req.params.id},
-        include: [Ponder]},
+    {
+        where: {id:req.params.id},
+        include: [{model: Ponder, include: [User]}]
+    },
     ).then(category=> {
-        const singlePonder = category.Ponders[Math.floor(Math.random()*category.Ponders.length)]
-        const ponder = singlePonder.get({ plain: true });
-        console.log(ponder);
-        res.json(ponder);
+        // console.log(category.Ponders);
+        const categoryData = category.Ponders;
+        if (categoryData.length === 0) {
+            if (req.session.user) {
+                const user = req.session.user;
+                res.render('noponder', { 
+                  layout: 'loggedin',
+                  user });
+                } else {
+                res.render('noponder', { 
+                  layout: 'main'
+                });
+                }    
+        } else { 
+        const catPonderData = categoryData[Math.floor(Math.random()*categoryData.length)];
+        const ponder = catPonderData.get({ plain: true });
+        // console.log(ponder);
+        if (req.session.user) {
+            const user = req.session.user;
+            res.render('random', { 
+              layout: 'loggedin',
+              ponder, user });
+            } else {
+            res.render('random', { 
+              layout: 'main',
+              ponder });
+            }
+        }
+        // res.json(catPonder);
     })
 });
 
