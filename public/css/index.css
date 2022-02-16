@@ -147,7 +147,7 @@ margin: 10px 0;
    flex-direction: column;
    justify-content: center;
    border-radius: 30px;
-   padding: 15px;
+   padding: 30px;
    background-color: white;
    align-self: center;
    margin-top: 100px;
@@ -395,6 +395,7 @@ margin: 10px 0;
    height: 100px;
 }
 #fish-menu{
+   margin-top:20px;
    display: none;
 }
 .teamcontainer{
