@@ -67,6 +67,15 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
       }
     };
 
+    categoryCheck.addEventListener('change', () => {
+      console.log("category check is pressed");
+      if (categoryCheck.checked) {
+        fishMenu.setAttribute("style","display: block;");
+      } else {
+        fishMenu.setAttribute("style","display: none;");
+      }
+    });
+
 //TODO: Logic for gofishing click may need to be reinstated if we are to allow the user to go fish by category. Currently, the user can only fish randomly because there is an anchor tag around the button which redirects the user directly towards   /  random.
     fishBtn.onclick = (event) => {
       event.preventDefault();
@@ -91,17 +100,7 @@ function profiletoggle() {
     logins.style.display = "flex";
   }
 }
-
-categoryCheck.addEvenListener('change',() => {
-
-  if (categoryCheck.checked) {
-    fishMenu.setAttribute("style","display: block;");
-  } else {
-    fishMenu.setAttribute("style","display: none;");
-  }
-})
  
-
 //He's a happy boi
 const frog = document.querySelector('.frogimage');
 frog.onclick = () => {
