@@ -27,7 +27,7 @@ Ponder is a fully developed fullstack application, sporting a sleek and intuitiv
 ## Installation
 
 Ponder requires no installation to use as it is a web-based application. You can access it here at:
-(https://pacific-ravine-12135.herokuapp.com/)
+(url placeholder)
 
 ## Usage
 
@@ -37,12 +37,9 @@ If you would like to post your own Ponder, it's as simple as typing your thought
 
 Here are some screenshots showcasing how our application looks on the live site:
 
-
-![Front page](/public/images/ponder1.PNG)
-![Example thread](/public/images/ponder2.PNG)
-![Example profile](/public/images/ponder3.PNG)
-![Sign up modal](/public/images/ponder4.PNG)
-
+    ```md
+    ![placeholder](assets/images/screenshot.png)
+    ```
 
 ## Credits
 
@@ -58,11 +55,11 @@ Ronnel (Front-End, Back-End, JS): [https://github.com/rabrigo](https://github.co
 
 Node Modules:
 
-    bad-words: [https://www.npmjs.com/package/bad-words] 
+    bad-words: [https://www.npmjs.com/package/bad-words](https://www.npmjs.com/package/bad-words) 
 
 Other References: 
 
-    CSS water effects: [https://freefrontend.com/css-ripple-effects/]
+    CSS water effects: [https://freefrontend.com/css-ripple-effects/](https://freefrontend.com/css-ripple-effects/)
 
 ## License
 
