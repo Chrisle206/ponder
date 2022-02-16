@@ -1,3 +1,6 @@
+const loginbtn = document.querySelector('#loginbtn');
+const loginFail = document.querySelector('.login-fail');
+
 const loginFormHandler = async function(event) {
     event.preventDefault();
   
@@ -14,12 +17,12 @@ const loginFormHandler = async function(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/active');
     } else {
-      alert('Failed to login');
+      loginFail.setAttribute("style", "color: red;");
+      loginFail.textContent = "Incorrect Email and/or Password";
     }
   };
   
-var loginbtn = document.querySelector('#loginbtn');
 loginbtn.addEventListener('click', loginFormHandler);
   

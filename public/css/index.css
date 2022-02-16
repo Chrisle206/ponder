@@ -1,65 +1,478 @@
 * {
-    font-family: 'Nunito', 'Geneva', 'Verdana', sans-serif;
-    --bg-color: #FDF3CC;
-    --nav-font-color: rgb(11, 69, 11);
-    --font-color: #ffffff;
-    --pond-color: #8ACDEA;
+   font-family: 'Metrophobic', 'Geneva', 'Verdana', sans-serif;
+   --bg-color: white;
+   --nav-font-color: rgb(11, 69, 11);
+   --font-color-light: #ffffff;
+   --font-color-dark: #000000;
+   --pond-color: #8ACDEA;
+   --pond-color-blue: #73abe7;
+   --fish-color: #f8ffe5;
+   --cast-color-dark: #037971;
+   --palette-yellow: #f8f32b;
+   --palette-rose: #f45b69;
+   --mud: #846c5b;
+
 }
 
-.ponder-nav {
-    display: flex;
-    color: var(--nav-font-color);
-}
-
-.nav-left-corner {
-    color: var(--nav-font-color);
+a {
+   color: var(--font-color-dark);
+   text-decoration: none;
 }
 
 #ponder-logo {
     font-size: 60px;
+    font-family: 'MuseoModerno', cursive;
+    color: var(--font-color-light);
 }
 
 #ponder-slogan {
-    font-size: 20px;
+    color: var(--font-color-light);
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 50px auto;
 }
 
 body {
-    background: var(--bg-color);
-    color: var(--font-color);
+    background: var(--pond-color);
+    color: var(--font-color-dark);
 }
 
-.main-card {
-   background: rgb(158,226,255);
-   background: radial-gradient(circle, rgba(158,226,255,1) 13%, rgba(138,205,234,1) 57%, rgba(138,205,234,1) 100%);
-   border-radius: 200px;
-   height: 550px;
-   width: 700px;
-   margin: 20px auto;
-   padding: 100px 100px;
+.nav{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 100px;
+   border-bottom: solid 2px var(--font-color-light);
+   margin: 0 30px;
+   padding: 0 30px;
+   
+}
+
+.navleft{
+   color: var(--font-color-light);
+   display: flex;
+   align-items: center;
+}
+
+.navright{
+   display: flex;
+   align-items: center;
+}
+
+.profile{
+   color: var(--font-color-dark);
+   display: flex;
+   align-items: center;
+   margin: 0 auto;
+}
+.profilemenu{
+   display: flex;
+   border: solid 3px white;
+   border-radius: 100%;
+   padding: 5px;
+   justify-content: center;
+}
+.loggedusername{
+   color: var(--font-color-dark);
+}
+.aboutbtn{
+   color: black;
+   display: block;
+   text-align: center;
+}
+#logins{
+   display: block;
+}
+.menucontainer{
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
+#loginsmobile{
+   display: none;
+   background-color: white;
+   height: auto;
+   justify-content: center;
+   flex-direction: column;
+   margin: 0 30px;
+   padding: 20px 0;
+   align-content: center;
+   width: 20%;
+
+}
+.menubtn{
+   width: auto;
+margin: 10px 0;
+}
+
+
+.the-pond {
+   display: flex;
+   margin: 0 auto 50px;
+   width: 800px;
    font-size: 25px;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: solid white 1px;
+   padding-bottom: 50px;
+}
+.the-pondcontainer {
+   display: flex;
+   flex-direction: column;
+   margin: 50px auto 50px;
+   width: 800px;
+   font-size: 25px;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: solid white 1px;
+   padding-bottom: 50px;
 }
 
-.container{
+.formcontainer{
+   width: 50%;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 30px;
+   padding: 30px;
+   background-color: white;
+}
+
+.fishcontainer{
+   width: 250px;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 30px;
+   padding: 30px;
+   background-color: white;
+   align-self: center;
+   margin-top: 100px;
+}
+.category-select{
+   width: 250px;
+   z-index: 1;
+   display: none;
+}
+.input-header{
+   margin-bottom: 30px;
+   text-align: center;
+}
+
+.ponder-input{
+   font-size: 18px;
+   width: 100%;
+   min-height: 100px;
+   border: none;
+   box-shadow: 0px 0px 2px gray;
+   border-radius: 10px;
+   padding: 16px;
+}
+
+.form-check-input {
+   width:20px;
+   height:20px;
+}
+
+.anonymous{
+   font-size: 18px;
+   color: var(--font-color-dark);
+}
+
+#category-check {
+   margin-top:0px;
+   margin-bottom: 5px;
+}
+.category{
+   font-size: 18px;
+   color: var(--font-color-dark);
+   align-self: center;
+}
+
+.righthalf{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.recentponders{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.recents-title{
+   width: 800px;
+   font-size: 24px;
+   margin: 40px auto;
+
+}
+
+#logoutbtn{
+}
+
+.signupbtn{
+   background-color: var(--bg-color);
+   color: black;
+}
+
+.pondercardheader{
+   background-color: var(--pond-color-dark);
+}
+
+.pondercard{
+   width: 800px;
+   background-color: white;
+   margin: 14px auto;
+   border: none;
+   border-radius: 30px;
+   padding: 50px;
+}
+
+.separator{
+   width: 100%;
+   background-color: var(--pond-color);
+   height: 2px;
+   margin: 0px auto 50px;
+}
+
+.comments-title{
+   font-size: 20px;
+
+}
+
+.comment-text{
+   font-size: 18px;
+   margin: 30px 0;
+}
+.form-floating label{
+   font-size: 18px;
+}
+.counter{
+   margin: 0px;
+}
+.commentusername{
+   color: var(--palette-rose)
+}
+
+.ponder-username {
+   font-size: 24px;
+   color: var(--pond-color-blue);
+   font-weight: bold;
+   margin: 10px 0px;
+}
+
+.ponder-text {
+   font-size: 20px;
+   margin: 40px 0 20px 0;
+}
+.noponder {
+   font-size: 20px;
+   margin: 0;
+   text-align: center;
+}
+
+.ponderbtns{
+   margin: 10px 20px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.comment-btn {
+   color: var(--font-color-dark)
+}
+
+.upvote-btn {
+   color: green;
+}
+
+.downvote-btn {
+   color: red;
+}
+.cast-btn{
+   background-color: green;
+
+   border-radius: 10px;
+   color: var(--font-color-light);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.fish-btn {
+   z-index: 1;
+}
+
+.newfishcontainer{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px;
+}
+
+.newfish-btn {
+   background-color: var(--palette-rose);
+   color: var(--font-color-light);
+   border-radius: 20px;
+   width: 200px;
+   height: 60px;
+}
+
+/* image related css */
+.imagecontainer{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.frogimage{
+   display: block;
+   width: 170px;
+   position: fixed;
+   bottom: 10px;
+   left: 70px;
+   z-index: 1;
+}
+
+.jump{
+   display: block;
+   width: 170px;
+   position: fixed;
+   bottom: -110px;
+   left: 150px;
+   z-index: 1;
+   animation: jump 1.2s infinite;
+}
+
+@keyframes jump {
+   0% { transform: translate(-50%, -50%) scale(1.25, 0.75); }
+   50% { transform: translate(-50%, -150%) scale(1, 1); }
+   100% { transform: translate(-50%, -50%) scale(1.25, 0.75); }
+}
+
+.fishingimage{
+   display: block;
+   width: 300px;
+   position: fixed;
+   bottom: 50px;
+   right: 80px;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1) rotate(-20deg);
+   z-index: 1;
+}
+.grassimage{
+   display: block;
+   width: 300px;
+   position: fixed;
+   bottom: 0px;
+   right: 5px;
+   -webkit-transform: scaleX(-1);
+   transform: scaleX(-1);
+
+}
+.grassimage2{
+   display: block;
+   width: 300px;
+   position: fixed;
+   bottom: 0px;
+   left: 5px;
+
+}
+.fishingrod{
+   width: 22px;
+   height: 22px;
+   margin-left: 10px;
+
+}
+
+.fishimg{
+   display: block;
+   width: 100px;
+   height: 100px;
+}
+#fish-menu{
+   margin-top:20px;
+   display: none;
+}
+.teamcontainer{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   max-width: 800px;
+   justify-content: space-between;
+   margin: 0 auto;
+
+}
+
+.teamcard{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: white;
+   margin: 14px 0px;
+   border: none;
+   border-radius: 30px;
+   padding: 30px;
+   text-align: center;
+   width: calc(50% - 30px);
+}
+.teampic{
+   width: 200px;
+   border-radius: 50%;
+   margin-bottom: 20px;
+}
+
+.fish{
+z-index: 1;
+
+}
+.gofishheader{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   color: var(--font-color-light);
+   margin-top: 10px;
+}
+
+.submit-btn{
+   background-color: green;
+   color: white;
+   margin: 40px 0;
+}
+
+/* RIPPLE EFFECT */
+.ripplecontainer{
     display: flex;
-   height: 100vh;
    width: 100%;
    align-items: center;
    justify-content: center;
 
 }
+.container{
+   display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 
-.container button {
+}
+.ripleo {
    position: absolute;
    animation: ripple 5s infinite;
    border-radius: 100%;
    border: none;
    background-color: var(--pond-color);
-   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px lightsteelblue;
+   box-shadow: inset 10px 10px 20px lightblue, inset -10px -10px 20px #ffffff;
    transition: 0.33s ease-in all;
    opacity: 0;
 }
 
- .container button::after {
+ .ripleo::after {
     content: "";
     display: block;
     border-radius: 100%;
@@ -67,51 +480,139 @@ body {
     top: 0;
     left: 0;
  box-shadow: inset 10px 10px 20px lightblue,
-             inset -10px -1px 20px lightsteelblue;
+             inset -10px -1px 20px #ffffff;
     opacity: 0;
     transition: 1s ease all;
  }
 
- .container button:hover {
-    box-shadow: 0px 0px 0px lightsteelblue;
+ .ripleo:hover {
+    box-shadow: 0px 0px 0px #ffffff;
     opacity: 0;
     transform: scale(1);
  }
 
- .container button:hover::after {
+ .ripleo:hover::after {
     transition: 1s ease all;
     opacity: 1;
  }
 
 @keyframes ripple {
    0% {
-      width: 20px;
-      height: 20px;
+      width: 220px;
+      height: 220px;
       opacity: 1;
    }
    100% {
-      width: 800px;
-      height: 400px;
+      width: 300px;
+      height: 300px;
       opacity: 0;
    }
 }
 
-.container button:nth-child(1) {
+.ripleo:nth-child(1) {
    animation-delay: 500ms;
 }
 
-.container button:nth-child(2) {
+.ripleo:nth-child(2) {
    animation-delay: 1000ms;
 }
 
-.container button:nth-child(3) {
+.ripleo:nth-child(3) {
    animation-delay: 1500ms;
 }
 
-.container button:nth-child(4) {
+.ripleo:nth-child(4) {
    animation-delay: 2000ms;
 }
 
-.container button:nth-child(5) {
+.ripleo:nth-child(5) {
    animation-delay: 2500ms;
+}
+
+
+@media screen and (max-width: 1024px) {
+.nav{
+height: auto;
+margin: 0;
+
+}
+.navleft{
+margin: 0 auto;
+
+}
+#ponder-logo {
+}
+
+#ponder-slogan {
+
+   font-size: 24px;
+   margin: 50px 30px;
+}
+.profilemenu{
+   display:block;
+   position: absolute;
+   right: 30px;
+   top: 20px;
+   color: white;
+}
+
+#logins{
+   display:none;
+}
+#loginsmobile{
+margin: 0 auto;
+width: 100%;
+}
+
+
+.the-pond{
+flex-direction: column;
+justify-content: center;
+width: 100%;
+
+}
+.the-pondcontainer {
+   width: 90%;
+}
+.formcontainer{
+   width: 90%;
+}
+.fishcontainer{
+   width: 100%;
+}
+.righthalf{
+   margin-top: 100px;
+}
+.pondercard{
+   width: 90%;
+   min-width: none;
+}
+.recents-title{
+   width: 100%;
+   text-align: center;
+}
+.teamcard{
+   width: 90%;
+}
+.teamcontainer{
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+
+}
+
+
+.frogimage{
+   display: none;
+}
+.fishingimage{
+   display: none;
+}
+.grassimage{
+   display: none;
+}
+.grassimage2{
+   display: none;
+}
+
 }

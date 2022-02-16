@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
+var Filter = require('bad-words');
+const badWordsArray = require('../../lib/seeds/profanities');
 const { User, Ponder, Comment } = require("../../models");
 const AnonymousProfileId = 1;
 
+var filter = new Filter();
+filter.addWords(...badWordsArray);
 
 //Route for getting all comments
 router.get("/", (req, res) => {
@@ -18,18 +22,22 @@ router.post("/", (req, res) => {
     if (req.session.user) {
         Comment.create({
             body: req.body.body,
-            user_id: req.session.user.id,
-            ponder_id: req.body.ponder_id
+            UserId: req.session.user.id,
+            PonderId: req.body.ponder_id
         }).then(newComment => {
-            res.json(newComment);
+            const comment = newComment.get({ plain: true});
+            console.log(comment);
+            res.json(comment);
         });
     } else {
         Comment.create({
-            body: req.body.body,
-            user_id: AnonymousProfileId,
-            ponder_id: req.body.ponder_id
+            body: filter.clean(req.body.body),
+            UserId: AnonymousProfileId,
+            PonderId: req.body.ponder_id
         }).then(newComment => {
-            res.json(newComment);
+            const comment = newComment.get({ plain: true});
+            console.log(comment);
+            res.json(comment);
         });
     }
 });
