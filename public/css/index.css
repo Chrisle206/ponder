@@ -212,7 +212,6 @@ margin: 10px 0;
 }
 
 #logoutbtn{
-   margin-left: 20px;
 }
 
 .signupbtn{
@@ -246,9 +245,15 @@ margin: 10px 0;
 }
 
 .comment-text{
+   font-size: 18px;
    margin: 30px 0;
 }
-
+.form-floating label{
+   font-size: 18px;
+}
+.counter{
+   margin: 0px;
+}
 .commentusername{
    color: var(--palette-rose)
 }
@@ -262,13 +267,19 @@ margin: 10px 0;
 
 .ponder-text {
    font-size: 20px;
-   margin: 40px 0 0 0;
+   margin: 40px 0 20px 0;
+}
+.noponder {
+   font-size: 20px;
+   margin: 0;
+   text-align: center;
 }
 
 .ponderbtns{
    margin: 10px 20px;
    display: flex;
    justify-content: flex-end;
+   align-items: center;
 }
 
 .comment-btn {
@@ -382,6 +393,9 @@ margin: 10px 0;
    display: block;
    width: 100px;
    height: 100px;
+}
+#fish-menu{
+   display: none;
 }
 .teamcontainer{
    display: flex;

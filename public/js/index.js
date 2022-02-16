@@ -84,13 +84,23 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
 
 //Dynamic mobile navbar rendering
 function profiletoggle() {
-  var logins = document.getElementById("loginsmobile");
+  const logins = document.getElementById("loginsmobile");
   if (logins.style.display === "flex") {
     logins.style.display = "none";
   } else {
     logins.style.display = "flex";
   }
 }
+
+categoryCheck.addEvenListener('change',() => {
+
+  if (categoryCheck.checked) {
+    fishMenu.setAttribute("style","display: block;");
+  } else {
+    fishMenu.setAttribute("style","display: none;");
+  }
+})
+ 
 
 //He's a happy boi
 const frog = document.querySelector('.frogimage');
