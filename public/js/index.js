@@ -82,7 +82,7 @@ if(window.location.pathname=="/" || window.location.pathname=="/active" ) {
     }
 }
 
-
+//Dynamic mobile navbar rendering
 function profiletoggle() {
   var logins = document.getElementById("loginsmobile");
   if (logins.style.display === "flex") {
@@ -90,4 +90,15 @@ function profiletoggle() {
   } else {
     logins.style.display = "flex";
   }
+}
+
+//He's a happy boi
+const frog = document.querySelector('.frogimage');
+frog.onclick = () => {
+  frog.classList.add("jump");
+}
+
+const rod = document.querySelector('.fishingimage');
+rod.onclick = () => {
+  rod.style.display = "none"
 }

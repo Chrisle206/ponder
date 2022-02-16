@@ -2,7 +2,7 @@
 
 const commentbtn = document.querySelector('#commentbtn');
 
-if (window.location.pathname=="/" || window.location.pathname=="/active" || window.location.pathname.contains("user")) {
+if (window.location.pathname=="/" || window.location.pathname=="/active" || window.location.pathname.includes("user")) {
     console.log("You are on the home page")
 } else {
 const commentSubmit = async function(event) {
@@ -11,10 +11,16 @@ const commentSubmit = async function(event) {
     const downvoteBtn = document.querySelector('.downvote-btn')
     const commentEl = document.querySelector('#commentTextarea');
     const ponderId = downvoteBtn.id;
+    const commentText = commentEl.value;
+    
+    if (!commentText) {
+      alert('Empty input field');
+      return;
+    }
     const response = await fetch('/api/comments', {
       method: 'POST',
       body: JSON.stringify({
-        body: commentEl.value,
+        body: commentText,
         ponder_id: ponderId
       }),
       headers: { 'Content-Type': 'application/json' },
